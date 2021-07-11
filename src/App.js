@@ -1,24 +1,49 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import ForumDiscussion from './components/Forum/admin_view_post'
+import ForumView from './components/Forum/public_view_post'
+
+import Navbar from './components/navbar/index';
+import Footer from './components/navbar/footer';
+import About from './components/navbar/pages/about';
+import Donations from './components/navbar/pages/donations';
+import projects from './components/navbar/pages/projects';
+import contact from './components/navbar/pages/contact';
+import Login from './components/navbar/pages/login';
+import signup from './components/navbar/pages/signup';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div style = {{ maxWidth : "90%", margin : "4rem auto" }}>
+    // <div className="App">
+    // </div>
+    <Router>
+      <div> 
+      <Navbar /> 
+      <Footer /> 
+
+      <switch>
+        <Route path='/navbar' exact component={Navbar} />
+        <Route path='/navbar/footer' exact component={Footer} />
+        <Route exact path = "./about" component = {About} />
+        <Route exact path = "./donations" component = {Donations} />
+        <Route exact path = "./projects" component = {projects} />
+        <Route exact path = "./contact" component = {contact} />
+        <Route exact path = "./login" component = {Login} />
+        <Route exact path = "./signup" component = {signup} />
+        <Route exact path = "/Forum/admin_view_post" component = {ForumDiscussion} />
+        <Route exact path = "/Forum/public_view_post" component = {ForumView} />
+
+      </switch>
+      </div>
+    </Router>
+   
+    // </div>
+   
+
   );
 }
 
