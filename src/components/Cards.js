@@ -12,37 +12,45 @@ function Cards() {
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-9.jpg'
+              src='images/img-book.jpg'
               text='Schedule appoitnments according to your convenience with your GS'
               label='Appointments'
               path='/appointment'
             />
             <CardItem
-              src='images/img-2.jpg'
-              text='Questions? Get them answered'
-              label='Forum'
-              path='/forum'
-            />
-          </ul>
-          <ul className='cards__items'>
-            <CardItem
-              src='images/img-3.jpg'
+              src='images/img-form.jpg'
               text='Download official forms online!'
               label='Forms'
               path='/forms'
             />
             <CardItem
-              src='images/img-4.jpg'
+              src='images/img-donate.jpg'
+              text='Make donations and become a donor!'
+              label='Donations'
+              path='/donations'
+            />
+          </ul>
+          <ul className='cards__items'>
+            
+            <CardItem
+              src='images/img-cons.jpg'
               text='View Past Projects, Current projects and Projects planned in the future  '
               label='Projects'
               path='/projects'
             />
             <CardItem
-              src='images/img-8.jpg'
-              text='Make donations and become a donor!'
-              label='Donations'
-              path='/donations'
+            src='images/img-forum.jpg'
+            text='Questions? Get them answered'
+            label='Forum Discussions'
+            path='/view_forum'
+          />
+            <CardItem
+              src='images/img-rec.jpg'
+              text='Resource and material Distribution details'
+              label='Resource'
+              path='/resource'
             />
+            
           </ul>
         </div>
       </div>
