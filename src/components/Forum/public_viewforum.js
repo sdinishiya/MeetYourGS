@@ -19,6 +19,13 @@ const useStyles = makeStyles((theme) => ({
     align: 'center',
 
   },
+  button: {
+    width: '70%',
+    marginLeft: 1000,
+    marginTop: 50,
+    align: 'center',
+
+  },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     flexBasis: '20%',
@@ -211,7 +218,17 @@ export default function ForumView() {
         </AccordionActions>
       </Accordion>
       {/* <Footer /> */}
+      <div>
+    <div className={classes.button}>
+
+      <Button variant="contained"  color="primary">
+            Add post
+      </Button>
+      
     </div>
+ </div>
+    </div>
+  
   
   );
 }
