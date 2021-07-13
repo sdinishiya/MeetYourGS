@@ -1,6 +1,10 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+
 
 const app = express();
 
@@ -28,31 +32,44 @@ app.post('/sign-up', (req, res)=> {
 	const email = req.body.email
 	const password = req.body.password
  
+	bcrypt.hash(password,saltRounds, (err,hash) => {
+
+		if(err){
+			console.log(err);
+		}
 	db.query
 	("INSERT INTO signup (fullname, address, nic, telephone, email, password) VALUES (?,?,?,?,?,?)", 
-	[fullname, address, nic, telephone, email, password], 
+	[fullname, address, nic, telephone, email, hash], 
 	(err, result)=> {
 		console.log(err);
+	})	
 	})
+	
 });
 
 app.post('/login', (req, res) => {
 
 	const email = req.body.email
 	const password = req.body.password
- 
+
 	db.query
-	("SELECT * signup WHERE email = ? AND password = ?", 
-	[email, password], 
+	("SELECT * signup WHERE email = ?;", 
+	email, 
 	(err, result)=> {
 
 		if(err){
 			res.send({err: err})
 		}
 			if (result.length > 0) {
-				res.send({message1:"User Signed In!"})
+				bcrypt.compare(password, result[0].password, (error, response)=>{
+					if(response){
+						res.send(result)
+					}else{
+						res.send({message:"Wrong username/password combination!"})
+					}
+				})
 			}else{
-				res.send({message:"Wrong username/password combination!"})
+				res.send({message:"User doesn't exist"});
 			}
 		}
 	);
