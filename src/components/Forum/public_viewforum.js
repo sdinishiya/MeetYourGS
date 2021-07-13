@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -10,6 +11,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import Footer from '../Footer';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,6 +67,7 @@ export default function ForumView() {
   const classes = useStyles();
 
   return (
+    <div>
     <div className={classes.root}>
       <h1 >Forum Discussion </h1>
       <br /> 
@@ -222,12 +226,22 @@ export default function ForumView() {
     <div className={classes.button}>
 
       <Button variant="contained"  color="primary">
-            Add post
+      <Link
+                to='/addforum'
+                className='nav-links'
+              >
+              Add Forum Discussion
+              </Link>
+            
       </Button>
       
     </div>
  </div>
-    </div>
+ <br />
+  </div>
+  <Footer />
+  </div>
+    
   
   
   );

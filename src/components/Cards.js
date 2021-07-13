@@ -27,7 +27,7 @@ function Cards() {
               src='images/img-donate.jpg'
               text='Make donations and become a donor!'
               label='Donations'
-              path='/donations'
+              path='/Donations/donate2'
             />
           </ul>
           <ul className='cards__items'>
