@@ -10,6 +10,10 @@ import ForumDiscussion from './components/Forum/admin_viewforum';
 import ForumView from './components/Forum/public_viewforum';
 import ProjectReviewCard from './components/projects/cards/PresentProjects';
 import CenteredGrid from './components/projects/grids/PresentProjects'; 
+import removeVillager from './components/villagers/remove_villager';
+import RegisterVillager from './components/villagers/register_villagers';
+import RegisterVoter from './components/villagers/register_voters';
+
 
 function App() {
   return (
@@ -25,6 +29,9 @@ function App() {
           <Route path='/public_viewforum' component={ForumView} />
           <Route exact path="/projects/cards/PresentProjects" component = {ProjectReviewCard} />
           <Route exact path="/projects/grids/PresentProjects" component = {CenteredGrid} />
+          <Route path='/remove_villager' component={removeVillager} />
+          <Route path='/register_villagers' component={RegisterVillager} />
+          <Route path='/register_voters' component={RegisterVoter} />
         </Switch>
       </Router>
     </>
