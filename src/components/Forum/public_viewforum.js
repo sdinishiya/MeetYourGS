@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Accordion from '@material-ui/core/Accordion';
@@ -11,7 +10,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
-import Footer from '../Footer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +17,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 250,
     marginTop: 50,
     align: 'center',
+
+  },
+  button: {
+    width: '70%',
+    marginLeft: 1000,
+    marginTop: 50,
+    align: 'center',
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -44,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: `3px solid ${theme.palette.divider}`,
     padding: theme.spacing(1, 3),
   },
+
   link: {
     color: theme.palette.primary.main,
     textDecoration: 'none',
@@ -53,12 +60,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ForumDiscussion() {
+export default function ForumView() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <h1 >View Forum Discussion </h1>;
+      <h1 >Forum Discussion </h1>
+      <br /> 
+      <br /> 
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -79,11 +88,8 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Report Post</Button>
         </AccordionActions>
       </Accordion>
 
@@ -107,11 +113,8 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Report Post</Button>
         </AccordionActions>
       </Accordion>
 
@@ -135,11 +138,8 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Report Post</Button>
         </AccordionActions>
       </Accordion>
 
@@ -163,11 +163,8 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Report Post</Button>
         </AccordionActions>
       </Accordion>
 
@@ -191,11 +188,8 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Report Post</Button>
         </AccordionActions>
       </Accordion>
 
@@ -219,49 +213,22 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Report Post</Button>
         </AccordionActions>
       </Accordion>
+      {/* <Footer /> */}
+      <div>
+    <div className={classes.button}>
 
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
-      <div> 
-        <br />
-        <br />
-        <br />
-      </div>
-      <Footer />
-
-     </div>
-    
+      <Button variant="contained"  color="primary">
+            Add post
+      </Button>
+      
+    </div>
+ </div>
+    </div>
+  
+  
   );
 }

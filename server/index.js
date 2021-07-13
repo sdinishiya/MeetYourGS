@@ -14,18 +14,19 @@ app.use(express.json());
 const db = mysql.createConnection({
 	user: "root",
 	host: "localhost",
-	password: "",
+	password: "root",
 	database: "meetyourgs",
+	port: "3306"
 });
 
-app.post('/signup', (req, res)=> {
+app.post('/sign-up', (req, res)=> {
 
 	const fullname = req.body.fullname
 	const address = req.body.address
 	const nic = req.body.nic
 	const telephone = req.body.telephone
 	const email = req.body.email
-	const password = req.body.email
+	const password = req.body.password
  
 	db.query
 	("INSERT INTO signup (fullname, address, nic, telephone, email, password) VALUES (?,?,?,?,?,?)", 
@@ -48,10 +49,8 @@ app.post('/login', (req, res) => {
 		if(err){
 			res.send({err: err})
 		}
-		
-
 			if (result.length > 0) {
-				res.send(result)
+				res.send({message1:"User Signed In!"})
 			}else{
 				res.send({message:"Wrong username/password combination!"})
 			}

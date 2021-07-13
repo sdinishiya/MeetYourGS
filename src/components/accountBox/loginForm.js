@@ -10,6 +10,7 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
+// eslint-disable-next-line no-unused-vars
 import login from "../pages/login";
 
 export function LoginForm(props) {
@@ -17,20 +18,20 @@ export function LoginForm(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const [loginStatus, setLoginStatus] = useState("");
 
     const login = ()=>{
-    Axios.post('https://localhost3001/login',
+    Axios.post("http://localhost:3001/login",
     { email: email, 
       password: password, 
       
     }).then((response) => {
 
       if(response.data.message){
-        setLoginStatus(response.data.message)
+        setLoginStatus(response.data.message);
       }else{
-        setLoginStatus(response.data[0].username)
+        setLoginStatus(response.data.message1);
       }
       
     });
