@@ -36,7 +36,7 @@ function Cards() {
               src='images/img-cons.jpg'
               text='View Past Projects, Current projects and Projects planned in the future  '
               label='Projects'
-              path='/projects'
+              path='/projects/grids/PresentProjects'
             />
             <CardItem
             src='images/img-forum.jpg'

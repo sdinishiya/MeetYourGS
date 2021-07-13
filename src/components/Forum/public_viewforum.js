@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: `3px solid ${theme.palette.divider}`,
     padding: theme.spacing(1, 3),
   },
+
   link: {
     color: theme.palette.primary.main,
     textDecoration: 'none',
@@ -57,7 +58,9 @@ export default function ForumView() {
 
   return (
     <div className={classes.root}>
-      <h1 >Forum Discussion </h1>;
+      <h1 >Forum Discussion </h1>
+      <br /> 
+      <br /> 
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
