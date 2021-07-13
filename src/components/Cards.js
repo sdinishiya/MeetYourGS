@@ -42,7 +42,7 @@ function Cards() {
             src='images/img-forum.jpg'
             text='Questions? Get them answered'
             label='Forum Discussions'
-            path='/view_forum'
+            path='/public_viewforum'
           />
             <CardItem
               src='images/img-rec.jpg'
