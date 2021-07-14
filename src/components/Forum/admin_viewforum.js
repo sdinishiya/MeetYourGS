@@ -57,7 +57,6 @@ export default function ForumDiscussion() {
   const classes = useStyles();
 
   return (
-    <div> 
     <div className={classes.root}>
       <h1 >View Forum Discussion </h1>;
       <Accordion defaultExpanded>
@@ -260,9 +259,8 @@ export default function ForumDiscussion() {
         <br />
         <br />
       </div>
-      
-      </div>
       <Footer />
+
      </div>
     
   );

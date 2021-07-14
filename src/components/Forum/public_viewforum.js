@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -11,20 +10,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
-import Footer from '../Footer';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '70%',
     marginLeft: 250,
-    marginTop: 50,
-    align: 'center',
-
-  },
-  button: {
-    width: '70%',
-    marginLeft: 1000,
     marginTop: 50,
     align: 'center',
 
@@ -53,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: `3px solid ${theme.palette.divider}`,
     padding: theme.spacing(1, 3),
   },
-
   link: {
     color: theme.palette.primary.main,
     textDecoration: 'none',
@@ -67,11 +56,8 @@ export default function ForumView() {
   const classes = useStyles();
 
   return (
-    <div>
     <div className={classes.root}>
-      <h1 >Forum Discussion </h1>
-      <br /> 
-      <br /> 
+      <h1 >Forum Discussion </h1>;
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -222,27 +208,7 @@ export default function ForumView() {
         </AccordionActions>
       </Accordion>
       {/* <Footer /> */}
-      <div>
-    <div className={classes.button}>
-
-      <Button variant="contained"  color="primary">
-      <Link
-                to='/addforum'
-                className='nav-links'
-              >
-              Add Forum Discussion
-              </Link>
-            
-      </Button>
-      
     </div>
- </div>
- <br />
-  </div>
-  <Footer />
-  </div>
-    
-  
   
   );
 }
