@@ -27,7 +27,7 @@ function Cards() {
               src='images/img-donate.jpg'
               text='Make donations and become a donor!'
               label='Donations'
-              path='/Donations/donate2'
+              path='/donations'
             />
           </ul>
           <ul className='cards__items'>
@@ -36,7 +36,7 @@ function Cards() {
               src='images/img-cons.jpg'
               text='View Past Projects, Current projects and Projects planned in the future  '
               label='Projects'
-              path='/projects/grids/PresentProjects'
+              path='/projects'
             />
             <CardItem
             src='images/img-forum.jpg'
