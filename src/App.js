@@ -10,8 +10,11 @@ import ForumDiscussion from './components/Forum/admin_viewforum';
 import ForumView from './components/Forum/public_viewforum';
 import ProjectReviewCard from './components/projects/cards/PresentProjects';
 import CenteredGrid from './components/projects/grids/PresentProjects'; 
-import FreeSolo from './components/forms/viewforms'; 
-import Album from './components/forms/form2'; 
+import Dashboard from './components/Dashboard/Dashboard'; 
+import Donate2 from './components/Donations/donate2'; 
+import removeVillager from './components/villagers/remove_villager';
+import RegisterVillager from './components/villagers/register_villagers';
+import RegisterVoter from './components/villagers/register_voters';
 
 import Donor from './components/tables/Donor_mgt';
 import Donation from './components/tables/Donation_mgt';
@@ -49,11 +52,6 @@ function App() {
           <Route path='/tables/viewQuery' component={Query} />
           <Route path='/tables/viewVoter' component={Voters} />
           
-          <Route exact path="/forms/viewforms" component = {FreeSolo} />
-          <Route exact path="/forms/form2" component = {Album} />
-         
-
-
         </Switch>
       </Router>
     </>
