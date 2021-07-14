@@ -24,6 +24,8 @@ import Complaint from './components/tables/viewComplaint';
 import Query from './components//tables/viewQuery';
 import Voters from './components/tables/viewVoter';
 import Finance from './components/tables/viewFinance';
+import Album from './components/forms/form2';
+import FreeSolo from './components/forms/viewforms';
 
 function App() {
   return (
@@ -53,6 +55,8 @@ function App() {
           <Route path='/tables/viewQuery' component={Query} />
           <Route path='/tables/viewVoter' component={Voters} />
           <Route path='/tables/viewFinance' component={Finance} />
+          <Route path='/forms/form2' component={Album} />
+          <Route path='/forms/viewforms' component={FreeSolo} />
           
         </Switch>
       </Router>

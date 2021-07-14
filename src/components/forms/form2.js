@@ -15,7 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import FreeSolo from './viewforms.js';
-import Foldericon from '../../assets/img/Foldericon.jpg'; 
+import folder from '../../assets/img/folder.jpg'; 
 
 
 function Copyright() {
@@ -106,7 +106,7 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={Foldericon}
+                    image={folder}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>

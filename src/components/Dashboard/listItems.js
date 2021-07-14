@@ -50,7 +50,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <Link to='/' className='nav-link1'>
+      <Link to='/forms' className='nav-link1'>
       <ListItemText primary="Official Forms" />
       </Link>
     </ListItem>
@@ -58,7 +58,7 @@ export const mainListItems = (
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <Link to='/' className='nav-link1'>
+      <Link to='/projects' className='nav-link1'>
       <ListItemText primary="Projects" />
       </Link>
     </ListItem>
@@ -66,7 +66,7 @@ export const mainListItems = (
       <ListItemIcon>
       <BarChartIcon />
       </ListItemIcon>
-      <Link to='/' className='nav-link1'>
+      <Link to='/support' className='nav-link1'>
       <ListItemText primary="Business Support" />
       </Link>
     </ListItem>
@@ -74,7 +74,7 @@ export const mainListItems = (
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <Link to='/' className='nav-link1'>
+      <Link to='/resource' className='nav-link1'>
       <ListItemText primary="Resource & Materials" />
       </Link>
     </ListItem>
