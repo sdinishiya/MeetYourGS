@@ -24,6 +24,7 @@ import People from '../tables/viewPeople';
 import Donor from '../tables/Donor_mgt';
 import View from './view';
 import Graph from './graph';
+import Graph1 from './graph1';
 
 function Copyright() {
   return (
@@ -182,7 +183,7 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
           
-            {/* <Grid item xs={12} md={8} lg={9}>
+            <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <Graph />
               </Paper>
@@ -192,13 +193,20 @@ export default function Dashboard() {
               <Paper className={fixedHeightPaper}>
                 <View />
               </Paper>
-            </Grid> */}
+            </Grid>
+
+            <Grid item xs={12} md={8} lg={9}>
+              <Paper className={fixedHeightPaper}>
+                <Graph1 />
+              </Paper>
+            </Grid>
            
-            <Grid item xs={12}>
+           
+            {/* <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Donor />
               </Paper>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Box pt={4}>
             

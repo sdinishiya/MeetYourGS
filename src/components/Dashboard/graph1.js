@@ -20,12 +20,12 @@ const data = [
   createData('24:00', undefined),
 ];
 
-export default function Graph() {
+export default function Graph1() {
   const theme = useTheme();
 
   return (
     <React.Fragment>
-      <Title>This month</Title>
+      <Title>Last month</Title>
       <ResponsiveContainer>
         <LineChart
           data={data}
