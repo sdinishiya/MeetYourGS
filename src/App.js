@@ -16,6 +16,13 @@ import removeVillager from './components/villagers/remove_villager';
 import RegisterVillager from './components/villagers/register_villagers';
 import RegisterVoter from './components/villagers/register_voters';
 
+import Donor from './components/tables/Donor_mgt';
+import Donation from './components/tables/Donation_mgt';
+import Appointment from './components//tables/viewAppointment';
+import People from './components/tables/viewPeople';
+import Complaint from './components//tables/viewComplaint';
+import Query from './components//tables/viewQuery';
+import Voters from './components//tables/viewVoter';
 
 function App() {
   return (
@@ -36,6 +43,15 @@ function App() {
           <Route path='/remove_villager' component={removeVillager} />
           <Route path='/register_villagers' component={RegisterVillager} />
           <Route path='/register_voters' component={RegisterVoter} />
+          <Route path='/Dashboard/Donor_mgt' component={Donor} />
+          <Route path='/Dashboard/Donation_mgt' component={Donation} />
+          
+          <Route path='/tables/viewAppointment' component={Appointment} />
+          <Route path='/tables/viewPeople' component={People} />
+          <Route path='/tables/viewComplaint' component={Complaint} />
+          <Route path='/tables/viewQuery' component={Query} />
+          <Route path='/tables/viewVoter' component={Voters} />
+          
         </Switch>
       </Router>
     </>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,62 +11,104 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
+
 export const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    
-    <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
+      <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+        <Link to='/tables/viewPeople' className='nav-link1'>
+      <ListItemText primary="People Management" />
+      </Link>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <Link to='/tables/viewAppointment' className='nav-link1'>
+      <ListItemText primary="Appointments" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <Link to='/' className='nav-link1'>
+      <ListItemText primary="Finance" />
+      </Link>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <Link to='/Dashboard/Donor_mgt' className='nav-link1'>
+      <ListItemText primary="Donor & Donations" />
+      </Link>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <Link to='/' className='nav-link1'>
+      <ListItemText primary="Official Forms" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <Link to='/' className='nav-link1'>
+      <ListItemText primary="Projects" />
+      </Link>
     </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+      <BarChartIcon />
+      </ListItemIcon>
+      <Link to='/' className='nav-link1'>
+      <ListItemText primary="Business Support" />
+      </Link>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <Link to='/' className='nav-link1'>
+      <ListItemText primary="Resource & Materials" />
+      </Link>
+    </ListItem>
+    
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    <ListSubheader inset>Information Handling</ListSubheader>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <Link to='/admin_viewforum' className='nav-link1'>
+      <ListItemText primary="Forum Discussion" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
+      <Link to='/tables/viewQuery' className='nav-link1'>
+      <ListItemText primary="Query Details" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <Link to='/tables/viewComplaint' className='nav-link1'>
+      <ListItemText primary="Complaint Handling" />
+      </Link>
     </ListItem>
+    
   </div>
 );

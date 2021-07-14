@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -12,7 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
-
+import Footer from '../Footer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -64,13 +63,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ForumView() {
+export default function Query() {
   const classes = useStyles();
 
   return (
     <div>
     <div className={classes.root}>
-      <h1 >Forum Discussion </h1>
+      <h1 >View Query </h1>
       <br /> 
       <br /> 
       <Accordion defaultExpanded>
@@ -94,7 +93,7 @@ export default function ForumView() {
         <Divider />
         <AccordionActions>
           <Button size="small" color="primary"> Reply</Button>
-          <Button size="small"color="secondary">Report Post</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
 
@@ -119,7 +118,7 @@ export default function ForumView() {
         <Divider />
         <AccordionActions>
           <Button size="small" color="primary"> Reply</Button>
-          <Button size="small"color="secondary">Report Post</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
 
@@ -144,7 +143,7 @@ export default function ForumView() {
         <Divider />
         <AccordionActions>
           <Button size="small" color="primary"> Reply</Button>
-          <Button size="small"color="secondary">Report Post</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
 
@@ -169,7 +168,7 @@ export default function ForumView() {
         <Divider />
         <AccordionActions>
           <Button size="small" color="primary"> Reply</Button>
-          <Button size="small"color="secondary">Report Post</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
 
@@ -194,7 +193,7 @@ export default function ForumView() {
         <Divider />
         <AccordionActions>
           <Button size="small" color="primary"> Reply</Button>
-          <Button size="small"color="secondary">Report Post</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
 
@@ -219,7 +218,7 @@ export default function ForumView() {
         <Divider />
         <AccordionActions>
           <Button size="small" color="primary"> Reply</Button>
-          <Button size="small"color="secondary">Report Post</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
       {/* <Footer /> */}
@@ -231,7 +230,7 @@ export default function ForumView() {
                 to='/addforum'
                 className='nav-links'
               >
-              Add Forum Discussion
+              Add General Message 
               </Link>
             
       </Button>
