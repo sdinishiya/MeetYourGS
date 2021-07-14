@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Services from './components/pages/services';
+import services from './components/pages/services';
 import login from './components/pages/login';
 import SignUp from './components/pages/SignUp';
 import ForumDiscussion from './components/Forum/admin_viewforum';
@@ -13,6 +13,8 @@ import CenteredGrid from './components/projects/grids/PresentProjects';
 import removeVillager from './components/villagers/remove_villager';
 import RegisterVillager from './components/villagers/register_villagers';
 import RegisterVoter from './components/villagers/register_voters';
+import AddForum from './components/Forum/add_forum';
+import AllocateFunds from './components/funds/allocate_funds';
 
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/services' component={Services} />
+          <Route path='/services' component={services} />
           <Route path='/login' component={login} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/admin_viewforum' component={ForumDiscussion} />
@@ -32,6 +34,8 @@ function App() {
           <Route path='/remove_villager' component={removeVillager} />
           <Route path='/register_villagers' component={RegisterVillager} />
           <Route path='/register_voters' component={RegisterVoter} />
+          <Route path='/add_forum' component={AddForum} />
+          <Route path='/allocate_funds' component={AllocateFunds} />
         </Switch>
       </Router>
     </>
