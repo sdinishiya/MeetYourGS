@@ -17,7 +17,7 @@ import RegisterVillager from './components/villagers/register_villagers';
 import RegisterVoter from './components/villagers/register_voters';
 
 import Donor from './components/tables/Donor_mgt';
-import Donation from './components/tables/Donation_mgt';
+import Donation from './components/tables/DonationMgt';
 import Appointment from './components/tables/viewAppointment';
 import People from './components/tables/viewPeople';
 import Complaint from './components/tables/viewComplaint';
@@ -47,7 +47,7 @@ function App() {
           <Route path='/register_villagers' component={RegisterVillager} />
           <Route path='/register_voters' component={RegisterVoter} />
           <Route path='/Dashboard/Donor_mgt' component={Donor} />
-          <Route path='/Dashboard/Donation_mgt' component={Donation} />
+          <Route path='/Dashboard/DonationMgt' component={Donation} />
           
           <Route path='/tables/viewAppointment' component={Appointment} />
           <Route path='/tables/viewPeople' component={People} />

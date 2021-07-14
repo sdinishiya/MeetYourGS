@@ -34,7 +34,7 @@ export default function Donation() {
     
     <div>
       <br />
-    <h1> Donoation Details</h1>
+    <h1> Donation Details</h1>
     <br />
     <TableContainer component={Paper}>
       <br />

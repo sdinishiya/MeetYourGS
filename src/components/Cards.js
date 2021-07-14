@@ -21,7 +21,7 @@ function Cards() {
               src='images/img-form.jpg'
               text='Download official forms online!'
               label='Forms'
-              path='/forms'
+              path='/forms/form2'
             />
             <CardItem
               src='images/img-donate.jpg'

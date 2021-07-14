@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+// import Donation from './components/tables/Donation_mgt';
+
 
 const useStyles = makeStyles({
   table: {
@@ -78,7 +80,7 @@ export default function Donor() {
             <br />
       <Button variant="contained"  color="primary">
       <Link
-                to='/tables/Donation_mgt'
+                to='/tables/DonationMgt'
                 className='nav-links'
               >
               View Donations 

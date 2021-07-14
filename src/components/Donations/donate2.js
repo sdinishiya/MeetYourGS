@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -141,6 +142,7 @@ export default function Donate2() {
         </Paper>
         <Copyright />
       </main>
+      <Footer />
     </React.Fragment>
   );
 }
