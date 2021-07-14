@@ -15,6 +15,8 @@ import RegisterVillager from './components/villagers/register_villagers';
 import RegisterVoter from './components/villagers/register_voters';
 import AddForum from './components/Forum/add_forum';
 import AllocateFunds from './components/funds/allocate_funds';
+import AddQuery from './components/queries/add_query';
+import AddComplain from './components/Complains/add_complain';
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Route path='/register_voters' component={RegisterVoter} />
           <Route path='/add_forum' component={AddForum} />
           <Route path='/allocate_funds' component={AllocateFunds} />
+          <Route path='/add_query' component={AddQuery} />
+          <Route path='/add_complain' component={AddComplain} />
         </Switch>
       </Router>
     </>

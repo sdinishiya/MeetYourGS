@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AddForum() {
+export default function AddComplain() {
   const classes = useStyles();
 
   return (
@@ -56,7 +56,7 @@ export default function AddForum() {
       <div className={classes.paper}>
         
         <Typography component="h1" variant="h5" color="FFAE2A"><b>
-          Add Forum</b>
+          Add Complain</b>
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -74,13 +74,13 @@ export default function AddForum() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                autoComplete="forumtopic"
-                name="forumTopic"
+                autoComplete="complain"
+                name="complain"
                 variant="outlined"
                 required
                 fullWidth
-                id="forumTopic"
-                label="Forum Topic"
+                id="complain"
+                label="Complain"
                 autoFocus
               />
               
