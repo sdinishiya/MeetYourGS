@@ -7,11 +7,22 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+
+  button: {
+    width: '70%',
+    margin: 100,
+    marginLeft: 950,
+    marginTop: 50,
+    align: 'center',
+  },
+
 });
 
 function createData(donorid, fullname, address, telephone, email, amount) {
@@ -63,6 +74,18 @@ export default function Donor() {
         </TableBody>
       </Table>
     </TableContainer>
+    <div className={classes.button} >
+            <br />
+      <Button variant="contained"  color="primary">
+      <Link
+                to='/tables/Donation_mgt'
+                className='nav-links'
+              >
+              View Donations 
+              </Link>
+      </Button>
+      </div>
+    
     </div>
   );
 }

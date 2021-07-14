@@ -18,11 +18,12 @@ import RegisterVoter from './components/villagers/register_voters';
 
 import Donor from './components/tables/Donor_mgt';
 import Donation from './components/tables/Donation_mgt';
-import Appointment from './components//tables/viewAppointment';
+import Appointment from './components/tables/viewAppointment';
 import People from './components/tables/viewPeople';
-import Complaint from './components//tables/viewComplaint';
+import Complaint from './components/tables/viewComplaint';
 import Query from './components//tables/viewQuery';
-import Voters from './components//tables/viewVoter';
+import Voters from './components/tables/viewVoter';
+import Finance from './components/tables/viewFinance';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path='/tables/viewComplaint' component={Complaint} />
           <Route path='/tables/viewQuery' component={Query} />
           <Route path='/tables/viewVoter' component={Voters} />
+          <Route path='/tables/viewFinance' component={Finance} />
           
         </Switch>
       </Router>

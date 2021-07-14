@@ -18,7 +18,8 @@ const useStyles = makeStyles({
 
   button: {
     width: '70%',
-    marginLeft: 500,
+    margin: 100,
+    marginLeft: 950,
     marginTop: 50,
     align: 'center',
   },
@@ -84,14 +85,8 @@ export default function People() {
               View Voters 
               </Link>
       </Button>
-      <Button variant="contained"  color="primary">
-      <Link
-                to='/register_villagers'
-                className='nav-links'
-              >
-              Register Villagers
-              </Link>
-      </Button>
+      <br />
+      <br />
       <Button variant="contained"  color="primary">
       <Link
                 to='/register_voters'
@@ -100,6 +95,18 @@ export default function People() {
               Register Voters <br />
               </Link>
       </Button>
+      <br />
+      <br />
+      <Button variant="contained"  color="primary">
+      <Link
+                to='/register_villagers'
+                className='nav-links'
+              >
+              Register Villagers
+              </Link>
+      </Button>
+      
+      
       
     </div>
     <br />

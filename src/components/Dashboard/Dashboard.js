@@ -20,6 +20,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 
+import People from '../tables/viewPeople';
 import Donor from '../tables/Donor_mgt';
 import View from './view';
 import Graph from './graph';

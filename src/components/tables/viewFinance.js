@@ -19,34 +19,34 @@ function createData(donorid, fullname, address, telephone, email, num) {
 }
 
 const rows = [
-  createData('V001', 'Mohomed Salman', '12.07.21', '0771234567', 'salman@gmail.com', '10.30'),
-  createData('V002', 'Hirusha Chamod', '16.07.2021', '0772345678', 'hirusha@gmail.com', '11.00'),
-  createData('V003', 'Dineshiya Sudharshan', '18.07.2021', '0773456789', 'dineshiya@gmail.com', '12.30'),
-  createData('V004', 'Lishani Suriyampola', '19.07.2021', '0774567890', 'lishani@gmail.com', '13.00'),
-  createData('V001', 'Maheshi Yatipansalawa', '19.07.2021', '0775678901', 'maheshi@gmail.com', '14.30'),
+  createData('V001', 'Edu lanka', 'Navalapitiya', '0771234567', 'salman@gmail.com', '10,256'),
+  createData('V002', 'Lets go', 'Ambalangoda', '0772345678', 'hirusha@gmail.com', '11,500'),
+  createData('V003', 'Kids day', 'Wellawatta', '0773456789', 'dineshiya@gmail.com', '12,030'),
+  createData('V004', 'Help women', 'Kandy', '0774567890', 'lishani@gmail.com', '13,000'),
+  createData('V001', 'Career Guidance', 'Gampola', '0775678901', 'maheshi@gmail.com', '14,030'),
 ];
 
 <br></br>
-export default function Appointment() {
+export default function Finance() {
   const classes = useStyles();
 
   return (
     
     <div>
       <br />
-    <h1> Appointment Details</h1>
+    <h1> Finance Details</h1>
     <br />
     <TableContainer component={Paper}>
       <br />
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="left"><b>Appointment ID</b></TableCell>
-            <TableCell align="left"><b>Villager Name</b></TableCell>
-            <TableCell align="left"><b>Date</b></TableCell>
-            <TableCell align="left"><b>Phone</b></TableCell>
+            <TableCell align="left"><b>Reciept No</b></TableCell>
+            <TableCell align="left"><b>Project Name</b></TableCell>
+            <TableCell align="left"><b>Place</b></TableCell>
+            <TableCell align="left"><b>Contact</b></TableCell>
             <TableCell align="left"><b>Email</b></TableCell>
-            <TableCell align="left"><b>Time</b></TableCell>
+            <TableCell align="left"><b>Amount</b></TableCell>
            
           </TableRow>
         </TableHead>
