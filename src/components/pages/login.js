@@ -28,7 +28,6 @@ return (
 		height: '100vh',
 	}}
 	>
-	<h1>Welcome to Meet Your GS Login</h1>
 	 <AppContainer>
       <AccountBox />
     </AppContainer>

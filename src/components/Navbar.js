@@ -65,7 +65,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Sign In
+                Profile
               </Link>
             </li>
 
