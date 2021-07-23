@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -13,12 +13,21 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Footer from '../Footer';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '70%',
     marginLeft: 250,
     marginTop: 50,
     align: 'center',
+
+  },
+  button: {
+    width: '70%',
+    marginLeft: 1000,
+    marginTop: 50,
+    align: 'center',
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -44,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: `3px solid ${theme.palette.divider}`,
     padding: theme.spacing(1, 3),
   },
+
   link: {
     color: theme.palette.primary.main,
     textDecoration: 'none',
@@ -53,13 +63,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ForumDiscussion() {
+export default function Complaint() {
   const classes = useStyles();
 
   return (
-    <div> 
+    <div>
     <div className={classes.root}>
-      <h1 >View Forum Discussion </h1>;
+      <h1 >View Complaints</h1>
+      <br /> 
+      <br /> 
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -67,7 +79,7 @@ export default function ForumDiscussion() {
           id="panel1c-header"
           >
             <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.details}>
           <div className={classes.column} />
@@ -80,190 +92,201 @@ export default function ForumDiscussion() {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
+          <Button size="small" color="primary"> Reply</Button>
           <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
+        </AccordionActions>
+      </Accordion>
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+          id="panel1c-header"
+          >
+            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
+            <Typography className={classes.heading}>We do not have electricity fror 12 hours!</Typography>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <div className={classes.column} />
+          <div className={classes.helper}>
+             <Typography>
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+            </Typography>
+          </div>
+        </AccordionDetails>
+        <Divider />
+        <AccordionActions>
+          <Button size="small" color="primary"> Reply</Button>
+          <Button size="small"color="secondary">Ban User</Button>
         </AccordionActions>
       </Accordion>
 
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
+      {/* <Footer /> */}
+      <div>
+    {/* <div className={classes.button}>
 
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
-
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
-
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
-
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
-
-      <Accordion defaultExpanded>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1c-content"
-          id="panel1c-header"
-          >
-            <Typography className={classes.heading}>Mr.Anjun Perera</Typography>   
-            <Typography className={classes.heading}>When is the GS available?</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.helper}>
-             <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-            </Typography>
-          </div>
-        </AccordionDetails>
-        <Divider />
-        <AccordionActions>
-          <Button size="small"color="secondary">Delete Post</Button>
-          <Button size="small"color="secondary">Ban User</Button>
-          <Button size="small" color="primary">
-            Reply
-          </Button>
-        </AccordionActions>
-      </Accordion>
-      <div> 
-        <br />
-        <br />
-        <br />
-      </div>
+      <Button variant="contained"  color="primary">
+      <Link
+                to='/addforum'
+                className='nav-links'
+              >
+              Add General Message 
+              </Link>
+            
+      </Button>
       
-      </div>
-      <Footer />
-     </div>
+    </div> */}
+ </div>
+ <br />
+  </div>
+  <Footer />
+  </div>
     
+  
+  
   );
 }

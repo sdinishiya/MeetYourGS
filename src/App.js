@@ -20,6 +20,23 @@ import Add_Materials1 from './components/materials/AddMaterials1';
 import Supply_Materials1 from './components/materials/SupplyMaterials1';
 import Add_Materials2 from './components/materials/AddMaterials2';
 import Supply_Materials2 from './components/materials/SupplyMaterials2';
+import Dashboard from './components/Dashboard/Dashboard'; 
+import Donate2 from './components/Donations/donate2'; 
+import removeVillager from './components/villagers/remove_villager';
+import RegisterVillager from './components/villagers/register_villagers';
+import RegisterVoter from './components/villagers/register_voters';
+
+import Donor from './components/tables/Donor_mgt';
+import Donation from './components/tables/DonationMgt';
+import Appointment from './components/tables/viewAppointment';
+import People from './components/tables/viewPeople';
+import Complaint from './components/tables/viewComplaint';
+import Query from './components//tables/viewQuery';
+import Voters from './components/tables/viewVoter';
+import Finance from './components/tables/viewFinance';
+import Album from './components/forms/form2';
+import FreeSolo from './components/forms/viewforms';
+
 function App() {
   return (
     <>
@@ -44,6 +61,23 @@ function App() {
           <Route exact path="/materials/SupplyMaterials1" component = {Supply_Materials1} />
           <Route exact path="/materials/AddMaterials2" component = {Add_Materials2} />
           <Route exact path="/materials/SupplyMaterials2" component = {Supply_Materials2} />
+          <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
+          <Route exact path="/Donations/donate2" component = {Donate2} />
+          <Route path='/remove_villager' component={removeVillager} />
+          <Route path='/register_villagers' component={RegisterVillager} />
+          <Route path='/register_voters' component={RegisterVoter} />
+          <Route path='/Dashboard/Donor_mgt' component={Donor} />
+          <Route path='/Dashboard/DonationMgt' component={Donation} />
+          
+          <Route path='/tables/viewAppointment' component={Appointment} />
+          <Route path='/tables/viewPeople' component={People} />
+          <Route path='/tables/viewComplaint' component={Complaint} />
+          <Route path='/tables/viewQuery' component={Query} />
+          <Route path='/tables/viewVoter' component={Voters} />
+          <Route path='/tables/viewFinance' component={Finance} />
+          <Route path='/forms/form2' component={Album} />
+          <Route path='/forms/viewforms' component={FreeSolo} />
+          
         </Switch>
       </Router>
     </>

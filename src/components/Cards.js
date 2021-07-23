@@ -21,13 +21,13 @@ function Cards() {
               src='images/img-form.jpg'
               text='Download official forms online!'
               label='Forms'
-              path='/forms'
+              path='/forms/form2'
             />
             <CardItem
               src='images/img-donate.jpg'
               text='Make donations and become a donor!'
               label='Donations'
-              path='/donations'
+              path='/Donations/donate2'
             />
           </ul>
           <ul className='cards__items'>
@@ -36,7 +36,7 @@ function Cards() {
               src='images/img-cons.jpg'
               text='View Past Projects, Current projects and Projects planned in the future  '
               label='Projects'
-              path='/projects'
+              path='/projects/grids/PresentProjects'
             />
             <CardItem
             src='images/img-forum.jpg'
