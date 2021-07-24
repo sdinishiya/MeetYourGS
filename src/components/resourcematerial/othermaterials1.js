@@ -9,9 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import {Box,Button} from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 
 const useStyles = makeStyles({
   table: {
@@ -31,7 +29,7 @@ const rows = [
 ];
 
 <br></br>
-export default function OtherResources() {
+export default function OtherResources1() {
   const classes = useStyles();
 
   return (
@@ -59,8 +57,6 @@ export default function OtherResources() {
               <TableCell align="center">{row.materialid}</TableCell>
               <TableCell align="center">{row.materialname}</TableCell>
               <TableCell align="center">{row.quantity}</TableCell>
-              <TableCell align="center"><IconButton aria-label="edit"><EditIcon /></IconButton></TableCell>
-              <TableCell align="center"><IconButton color='Secondary'aria-label="delete"><DeleteIcon /></IconButton></TableCell>
               {/* <TableCell align="center"><Button variant="contained" color="primary">Edit</Button></TableCell>
               <TableCell align="center"><Button variant="contained" color="secondary">Delete</Button></TableCell> */}
             </TableRow>
@@ -68,7 +64,7 @@ export default function OtherResources() {
         </TableBody>
       </Table>
     </TableContainer>
-    <Link to={'/materials/AddMaterials2'}>
+    {/* <Link to={'/materials/AddMaterials2'}>
       <Button
         color="primary"
         variant="contained"
@@ -84,7 +80,7 @@ export default function OtherResources() {
       >
         Supply Materials
       </Button>
-      </Link>
+      </Link> */}
     </div>
   );
 }

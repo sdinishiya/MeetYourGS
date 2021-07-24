@@ -48,7 +48,7 @@ function Cards() {
               src='images/img-rec.jpg'
               text='Resource and material Distribution details'
               label='Resource'
-              path='/resourcematerial/card'
+              path='/resourcematerial/card1'
             />
             
           </ul>

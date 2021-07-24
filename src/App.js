@@ -14,6 +14,10 @@ import Card from './components/resourcematerial/card';
 import ConstResources from './components/resourcematerial/const.materials';
 import AgriResources from './components/resourcematerial/agri.materials';
 import OtherResources from './components/resourcematerial/othermaterials';
+import Card1 from './components/resourcematerial/card1';
+import ConstResources1 from './components/resourcematerial/const.materials1';
+import AgriResources1 from './components/resourcematerial/agri.materials1';
+import OtherResources1 from './components/resourcematerial/othermaterials1';
 import Add_Materials from './components/materials/AddMaterials';
 import Supply_Materials from './components/materials/SupplyMaterials';
 import Add_Materials1 from './components/materials/AddMaterials1';
@@ -55,6 +59,10 @@ function App() {
           <Route exact path="/resourcematerial/const.materials" component = {ConstResources} />
           <Route exact path="/resourcematerial/agri.materials" component = {AgriResources} />
           <Route exact path="/resourcematerial/othermaterials" component = {OtherResources} />
+          <Route exact path="/resourcematerial/card1" component = {Card1} />
+          <Route exact path="/resourcematerial/const.materials1" component = {ConstResources1} />
+          <Route exact path="/resourcematerial/agri.materials1" component = {AgriResources1} />
+          <Route exact path="/resourcematerial/othermaterials1" component = {OtherResources1} />
           <Route exact path="/materials/AddMaterials" component = {Add_Materials} />
           <Route exact path="/materials/SupplyMaterials" component = {Supply_Materials} />
           <Route exact path="/materials/AddMaterials1" component = {Add_Materials1} />

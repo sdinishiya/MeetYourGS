@@ -74,7 +74,7 @@ export const mainListItems = (
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <Link to='/resource' className='nav-link1'>
+      <Link to='/resourcematerial/card' className='nav-link1'>
       <ListItemText primary="Resource & Materials" />
       </Link>
     </ListItem>

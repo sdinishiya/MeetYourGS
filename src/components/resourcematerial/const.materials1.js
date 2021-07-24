@@ -9,9 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import {Box,Button} from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 
 // import { Search as SearchIcon } from 'react-feather';
 
@@ -19,7 +17,6 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-  
 });
 
 function createData(addeddate, materialid, materialname, quantity) {
@@ -34,7 +31,7 @@ const rows = [
 ];
 
 <br></br>
-export default function ConstResources() {
+export default function ConstResources1() {
   const classes = useStyles();
 
   return (
@@ -79,8 +76,8 @@ export default function ConstResources() {
               <TableCell align="center">{row.quantity}</TableCell>
               {/* <TableCell align="center">{row.action}</TableCell>
               <TableCell align="center">{row.action}</TableCell> */}
-              <TableCell align="center"><IconButton aria-label="edit"><EditIcon /></IconButton></TableCell>
-              <TableCell align="center"><IconButton color='Secondary'aria-label="delete"><DeleteIcon /></IconButton></TableCell>
+              {/* <TableCell align="center"><IconButton aria-label="edit"><EditIcon /></IconButton></TableCell>
+              <TableCell align="center"><IconButton color='Secondary'aria-label="delete"><DeleteIcon /></IconButton></TableCell> */}
             </TableRow>
             
           ))}
@@ -94,14 +91,14 @@ export default function ConstResources() {
         justifyContent: 'flex-end'
       }}
     ></Box> */}
-    <Link to={'/materials/AddMaterials'}>
+    {/* <Link to={'/materials/AddMaterials'}>
       <Button
         color="primary"
         variant="contained"
       >
         Add Materials
       </Button>
-      </Link>
+      </Link> */}
       {/* <Link to='/materials/AddMaterials'>
               <button
                 type="submit"
@@ -111,7 +108,7 @@ export default function ConstResources() {
               > Add Materials
               </button>
             </Link> */}
-
+{/* 
       <Link to={'/materials/SupplyMaterials'}>
       <Button
         color="primary"
@@ -119,7 +116,7 @@ export default function ConstResources() {
       >
         Supply Materials
       </Button>
-      </Link>
+      </Link> */}
       {/* </Box> */}
 </div>
   );

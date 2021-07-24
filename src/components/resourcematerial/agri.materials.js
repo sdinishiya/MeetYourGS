@@ -9,6 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import {Box,Button} from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -55,8 +58,10 @@ export default function AgriResources() {
               <TableCell align="center">{row.materialid}</TableCell>
               <TableCell align="center">{row.materialname}</TableCell>
               <TableCell align="center">{row.quantity}</TableCell>
-              <TableCell align="center"><Button variant="contained" color="primary">Edit</Button></TableCell>
-              <TableCell align="center"><Button variant="contained" color="secondary">Delete</Button></TableCell>
+              <TableCell align="center"><IconButton aria-label="edit"><EditIcon /></IconButton></TableCell>
+              <TableCell align="center"><IconButton color='Secondary'aria-label="delete"><DeleteIcon /></IconButton></TableCell>
+              {/* <TableCell align="center"><Button variant="contained" color="primary">Edit</Button></TableCell>
+              <TableCell align="center"><Button variant="contained" color="secondary">Delete</Button></TableCell> */}
             </TableRow>
           ))}
         </TableBody>
