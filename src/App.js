@@ -10,6 +10,12 @@ import ForumDiscussion from './components/Forum/admin_viewforum';
 import ForumView from './components/Forum/public_viewforum';
 import ProjectReviewCard from './components/projects/cards/PresentProjects';
 import CenteredGrid from './components/projects/grids/PresentProjects'; 
+import Dashboard from './components/Dashboard/Dashboard'; 
+import Donate2 from './components/Donations/donate2'; 
+import removeVillager from './components/villagers/remove_villager';
+import RegisterVillager from './components/villagers/register_villagers';
+import RegisterVoter from './components/villagers/register_voters';
+
 import Card from './components/resourcematerial/card';
 import ConstResources from './components/resourcematerial/const.materials';
 import AgriResources from './components/resourcematerial/agri.materials';
@@ -24,15 +30,12 @@ import Add_Materials1 from './components/materials/AddMaterials1';
 import Supply_Materials1 from './components/materials/SupplyMaterials1';
 import Add_Materials2 from './components/materials/AddMaterials2';
 import Supply_Materials2 from './components/materials/SupplyMaterials2';
-import Dashboard from './components/Dashboard/Dashboard'; 
-import Donate2 from './components/Donations/donate2'; 
-import removeVillager from './components/villagers/remove_villager';
-import RegisterVillager from './components/villagers/register_villagers';
-import RegisterVoter from './components/villagers/register_voters';
+
 
 import Donor from './components/tables/Donor_mgt';
 import Donation from './components/tables/DonationMgt';
 import Appointment from './components/tables/viewAppointment';
+import ConfirmedAppointment from './components/tables/viewConfirmedAppointment';
 import People from './components/tables/viewPeople';
 import Complaint from './components/tables/viewComplaint';
 import Query from './components//tables/viewQuery';
@@ -40,6 +43,12 @@ import Voters from './components/tables/viewVoter';
 import Finance from './components/tables/viewFinance';
 import Album from './components/forms/form2';
 import FreeSolo from './components/forms/viewforms';
+import Appoint from './components/Appointment/appointments';
+import schedule from './components/Appointment/schedule';
+import Booking from './components/Appointment/bookApp';
+import Booking1 from './components/Appointment/bookApp1';
+
+
 
 function App() {
   return (
@@ -69,6 +78,7 @@ function App() {
           <Route exact path="/materials/SupplyMaterials1" component = {Supply_Materials1} />
           <Route exact path="/materials/AddMaterials2" component = {Add_Materials2} />
           <Route exact path="/materials/SupplyMaterials2" component = {Supply_Materials2} />
+
           <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
           <Route exact path="/Donations/donate2" component = {Donate2} />
           <Route path='/remove_villager' component={removeVillager} />
@@ -78,6 +88,7 @@ function App() {
           <Route path='/Dashboard/DonationMgt' component={Donation} />
           
           <Route path='/tables/viewAppointment' component={Appointment} />
+          <Route path='/tables/viewConfirmedAppointment' component={ConfirmedAppointment} />
           <Route path='/tables/viewPeople' component={People} />
           <Route path='/tables/viewComplaint' component={Complaint} />
           <Route path='/tables/viewQuery' component={Query} />
@@ -85,6 +96,11 @@ function App() {
           <Route path='/tables/viewFinance' component={Finance} />
           <Route path='/forms/form2' component={Album} />
           <Route path='/forms/viewforms' component={FreeSolo} />
+          
+          <Route path='/Appointment/appointments' component={Appoint} />
+          <Route path='/Appointment/schedule' component={schedule} />
+          <Route path='/Appointment/bookApp' component={Booking} />
+          <Route path='/Appointment/bookApp1' component={Booking1} />
           
         </Switch>
       </Router>

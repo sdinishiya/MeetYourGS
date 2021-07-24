@@ -26,7 +26,7 @@ export const mainListItems = (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <Link to='/tables/viewAppointment' className='nav-link1'>
+      <Link to='/Appointment/appointments' className='nav-link1'>
       <ListItemText primary="Appointments" />
       </Link>
     </ListItem>
