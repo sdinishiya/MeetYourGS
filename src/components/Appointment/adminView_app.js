@@ -27,7 +27,7 @@ const rows = [
 ];
 
 <br></br>
-export default function Appointment() {
+export default function Appointments() {
   const classes = useStyles();
 
   return (
