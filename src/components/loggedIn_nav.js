@@ -3,7 +3,11 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
+<<<<<<< HEAD
 function log_Navbar() {
+=======
+function loggednavbar() {
+>>>>>>> c94a977331f4276fe29e37f56b4602fd6a5a14a7
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -86,4 +90,4 @@ function log_Navbar() {
   );
 }
 
-export default log_Navbar;
+export default loggednavbar;
