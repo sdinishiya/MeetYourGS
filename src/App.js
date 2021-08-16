@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -17,13 +16,13 @@ import AddForum from './components/Forum/add_forum';
 import AllocateFunds from './components/funds/allocate_funds';
 import AddQuery from './components/queries/add_query';
 import AddComplain from './components/Complains/add_complain';
+import log_Navbar from './components/loggedIn_nav';
 
 
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/services' component={services} />
@@ -40,6 +39,7 @@ function App() {
           <Route path='/allocate_funds' component={AllocateFunds} />
           <Route path='/add_query' component={AddQuery} />
           <Route path='/add_complain' component={AddComplain} />
+          <Route path='/log_navbar' component={log_Navbar} />
         </Switch>
       </Router>
     </>
