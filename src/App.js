@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -34,8 +34,8 @@ import Supply_Materials2 from './components/materials/SupplyMaterials2';
  
 import Donor from './components/tables/Donor_mgt';
 import Donation from './components/tables/DonationMgt';
-import Appointment from './components/tables/viewAppointment';
-import ConfirmedAppointment from './components/tables/viewConfirmedAppointment';
+import AppointmentView from './components/tables/appointmentView';
+import AppointmentConfirm from './components/tables/viewConfirmedAppointment';
 import People from './components/tables/viewPeople';
 import Complaint from './components/tables/viewComplaint';
 import Query from './components//tables/viewQuery';
@@ -47,14 +47,24 @@ import Appoint from './components/Appointment/appointments';
 import schedule from './components/Appointment/schedule';
 import Booking from './components/Appointment/bookApp';
 import Booking1 from './components/Appointment/bookApp1';
+<<<<<<< Updated upstream
  
  
  
+=======
+import thank from './components/Appointment/thankyou';
+
+import Donationdash from './components/Donors/donationdash';
+import DonationView from './components/Donors/donations';
+import AddDonation from './components/Donors/add_donation';
+
+
+>>>>>>> Stashed changes
 function App() {
   return (
     
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
@@ -87,8 +97,8 @@ function App() {
           <Route path='/Dashboard/Donor_mgt' component={Donor} />
           <Route path='/Dashboard/DonationMgt' component={Donation} />
           
-          <Route path='/tables/viewAppointment' component={Appointment} />
-          <Route path='/tables/viewConfirmedAppointment' component={ConfirmedAppointment} />
+          <Route path='/tables/appointmentView' component={AppointmentView} />
+          <Route path='/tables/viewConfirmedAppointment' component={AppointmentConfirm} />
           <Route path='/tables/viewPeople' component={People} />
           <Route path='/tables/viewComplaint' component={Complaint} />
           <Route path='/tables/viewQuery' component={Query} />
@@ -101,7 +111,13 @@ function App() {
           <Route path='/Appointment/schedule' component={schedule} />
           <Route path='/Appointment/bookApp' component={Booking} />
           <Route path='/Appointment/bookApp1' component={Booking1} />
-          
+          <Route path='/Appointment/thankyou' component={thank} />
+
+          <Route path='/Donors/donationdash' component={Donationdash} />
+          <Route path='/Donors/donations' component={DonationView} />
+          <Route path='/Donors/add_donation' component={AddDonation} />
+
+
         </Switch>
       </Router>
     
