@@ -1,132 +1,129 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { red } from '@material-ui/core/colors';
-import { useState } from 'react'; 
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from "axios";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
+function Schedule() {
+    const [appID,setID] = useState("");
+    const [gsname,setName] = useState("");
+    const [date,setDate] = useState("");
+    const [time,setTime] = useState("");
+    const [description,setDescription] = useState("");
 
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    color: red,
-  },
-}));
+    const schedule = ()=>{
+      console.log(appID);
+       axios.post('http://localhost:3001/schedule',{
+        gsname:gsname,
+        date:date,
+        time:time,
+        description:description,
 
-export default function Schedule() {
-  const classes = useStyles();
+        }).then(()=>{
+           console.log("success");
+         });
+    };
 
-  const[gsname, setName] = useState("");
-  const[date, setDate] = useState(0);
-  const[time, setTime] = useState(0);
-  const[des, setDes] = useState("");
+  const mystyle = {
+    formstep: {
+      fontsize: '35px',
+      textalign: 'center',
+      color: '#23750a',
+    },
 
-  const displayInfo = () => {
-      console.log(gsname + date + time + des )
+    formbox: {
+      backgroundColor: 'white',
+      width: '60%',
+      textalign: 'center',
+      marginTop: '10px',
+      height: 'full',
+      boxShadow: "2px 2px 5px  2px #9E9E9E",
+      padding : "1vh",
+      borderRadius : "5px"
+    },
+    popupbox: {
+      position: 'fixed',
+      background: '#00000050',
+      width: '75vh',
+      height: '75vh',
+      top: '12vh',
+      left: '90vh',
+    },
+    forminput: {
+
+      width: '70%',
+      padding: '10px 10px',
+      margin: '8px 0',
+      display: 'inline - block',
+      border: '1px solid #C0C0C0',
+      borderRadius: '5px',
+      height: '40px'
+    },
+    formhead: {
+      paddingTop: '50px',
+      paddingBottom: '20px'
+    },
+    submitBtn: {
+      marginTop: '20px',
+      width: '145px',
+      height: '40px',
+      fontSize: '18px',
+      backgroundColor: '#4caf50',
+      cursor: 'pointer',
+      border: 'none',
+      borderRadius: '5px',
+      color: 'white',
+      marginRight: '30px'
+    },
+    closeBtn: {
+      marginTop: '20px',
+      width: '145px',
+      height: '40px',
+      fontSize: '18px',
+      backgroundColor: '#f44336',
+      transition: '1s background ease',
+      cursor: 'pointer',
+      border: 'none',
+      borderRadius: '5px',
+      color: 'white',
+      marginRight: '150px'
+    }
+
+
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          Schedule Appointment Slots
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
+    
+    <div align='center'>
+      <br/><br/>
+      <div style={mystyle.formbox}>
+        <h1 style={mystyle.formhead}> SCHEDULE APPOINTMENTS </h1>
+        <form >
+          <div >
 
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="GSname"
-                name="gsname"
-                variant="outlined"
-                required
-                fullWidth
-                id="gsname"
-                label="GS Name"
-                autoFocus
-                onchange= {(event)=>{
-                    setName(event.target.value);
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} >
-              <TextField
-                autoComplete="date"
-                name="date"
-                type="date"
-                variant="outlined"
-                required
-                fullWidth
-                id="date"
-                label=""
-                autoFocus
-                onchange= {(event)=>{
-                    setDate(event.target.value);
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} >
-              <TextField
-                autoComplete="time"
-                name="time"
-                type="time"
-                variant="outlined"
-                required
-                fullWidth
-                id="time"
-                label=""
-                autoFocus
-                onchange= {(event)=>{
-                    setTime(event.target.value);
-                }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                id="note"
-                label="Description "
-                name="note"
-                autoComplete="note"
-                onchange= {(event)=>{
-                    setDes(event.target.value);
-                }}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            // onClick ={displayInfo}
-          >
-            Add Slot
-          </Button>
+            <input type="text"style={mystyle.forminput}name="gsname" onChange={(event)=>{setName(event.target.value);}} required placeholder="GS Name"/><br />
+            <input type="date"style={mystyle.forminput}name="date " onChange={(event)=>{setDate(event.target.value);}} required placeholder="Date"/><br />
+            <input type="time"style={mystyle.forminput}name="time" onChange={(event)=>{setTime(event.target.value);}} required placeholder="Time"/><br />
+            <input type="text"style={mystyle.forminput}name="description" onChange={(event)=>{setDescription(event.target.value);}} required placeholder="Description"/><br />
+            
+          </div>
+
+          <div display='flex' align='right'>
+
+            <Link to='/Appointment/appointments'>
+              <button type="submit" onClick={schedule} id="submitBtn"style={mystyle.submitBtn}> Add Slot</button>
+            </Link>
+
+            <Link to='/Appointment/schedule'>
+              <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
+            </Link>
+          </div>
+          <br/> <br/>
+
         </form>
+
       </div>
-      
-    </Container>
-  );
+    </div>
+
+  )
 }
+
+export default Schedule;

@@ -5,7 +5,7 @@ import CardItem from '../CardItem';
 function Appcards() {
   return (
     <div className='cards'>
-      <h1> Manage Appointments! </h1>
+      <h1> Manage Appointments </h1>
 
       <div className='cards__container'>
         <div className='cards__wrapper'>
@@ -20,7 +20,7 @@ function Appcards() {
               src='../images/gs2.jpg'
               text='Take a look at the new set of Appointments'
               label=' Appointment Requests '
-              path='../tables/viewAppointment'
+              path='../tables/appointmentView'
             />
             <CardItem
               src='../images/tick.jpg'

@@ -1,83 +1,111 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Table} from 'react-bootstrap';
+
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import {Box,Button} from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SearchIcon from '@material-ui/icons/Search';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+// import { Search as SearchIcon } from 'react-feather';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
+const mystyle = {
+  bookbtn: {
+      marginTop: '10px',
+      width: '125px',
+      height: '30px',
+      fontSize: '14px',
+      backgroundColor: '#f57c00',
+      cursor: 'pointer',
+      border: 'none',
+      borderRadius: '5px',
+      color: 'white',
+      marginRight: '30px'
+  }
+};
 
-  button: {
-    width: '70%',
-    margin: 100,
-    marginLeft: 950,
-    marginTop: 50,
-    align: 'center',
-  },
-});
-
-function createData(gsname, date, time, des) {
-  return { gsname, date, time, des};
-}
-
-const rows = [
-  createData( 'Mr. Perera', '21.07.2021', '10.30 am', 'Only 15 mins' ),
-  createData( 'Mr. Perera', '22.07.2021', '10.30 am', 'Only 15 mins' ),
-  createData( 'Mr. Perera', '24.07.2021', '10.30 am', 'Only 15 mins' ),
-  createData( 'Mr. Perera', '26.07.2021', '10.30 am', 'Only 15 mins' ),
-  createData( 'Mr. Perera', '28.07.2021', '10.30 am', 'Only 15 mins' ),
-  createData( 'Mr. Perera', '31.07.2021', '10.30 am', 'Only 15 mins' ),
-
-
-];
-
-<br></br>
 export default function Booking1() {
-  const classes = useStyles();
+  const [searchTerm,setSearchTerm]=useState("");
+  const [bookList,setbookList]=useState([])
+  // const classes = useStyles();
+
+  useEffect(()=>{
+    axios.get("http://localhost:3001/book").then((response)=>{
+      setbookList(response.data)
+    })
+  },[])
+
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
 
   return (
-    
-    <div>
-      <br />
-    <h1>Available Appointment Slots</h1>
-    <br />
-    <TableContainer component={Paper}>
-      <br />
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center"><b>GS Name</b></TableCell>
-            <TableCell align="center"><b>Date</b></TableCell>
-            <TableCell align="center"><b>Time</b></TableCell>
-            <TableCell align="center"><b>Description</b></TableCell>
-            <TableCell align="center"><b></b></TableCell>
-            
-           
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell align="center">{row.gsname}</TableCell>
-              <TableCell align="center">{row.date}</TableCell>
-              <TableCell align="center">{row.time}</TableCell>
-              <TableCell align="center">{row.des}</TableCell>
-              <TableCell align="center"><Link to='/Appointment/bookApp'> <Button variant="contained" color="primary">Book</Button></Link></TableCell>
-              
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div ><br/>
+                <div className='box-main'>
+                <h1> Available Appointment Slots</h1>
+                </div><br/> 
 
-   </div>
-  );
+                {/* <Table  bordered hover responsive> */}
+              <TableContainer>
+                <Table hover responsive>
+                  <thead className="tableheading">
+                    <tr>
+                      <td align="center" scope="col"><b>GS Name</b></td>
+                      <td align="center" scope="col"><b>Date</b></td>
+                      <td align="center" scope="col"><b>Time</b></td>
+                      <td align="center" scope="col"><b>Description</b></td>
+                      <td align="center" scope="col"><b></b></td>
+                    </tr>
+                  </thead>
+                 <tbody className="tablebody">
+                     {bookList.filter(val=>{if(searchTerm===""){
+                       return val;
+                     }else if(
+                       val.name.toLowerCase().includes(searchTerm.toLowerCase()) || val.email.toLowerCase().includes(searchTerm.toLowerCase())) 
+                     {
+                       return val
+                     }
+                    }).map((record)=>{
+                      return(
+                       <tr>
+                       <td align="center" scope="row" >{record.gsname}</td>
+                       <td align="center">{record.date}</td>
+                       <td align="center">{record.time}</td>
+                       <td align="center">{record.description}</td>
+                       <td align="center">
+                       <Link to='/Appointment/bookApp'>
+                          <button id="bookbtn"style={mystyle.bookbtn}> Book </button>
+                        </Link>
+                       {/* <Link to='/Appointment/bookApp' onClick={()=>{updateMaterial(record.materialid)}}
+                            className="bookbtn ">Book</Link> */}
+                        </td>
+                      </tr>
+                       )
+                     })}   
+                    
+                  </tbody> 
+                </Table>
+              </TableContainer>
+              </div>
+           
+  )
 }
