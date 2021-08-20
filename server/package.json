@@ -18,8 +18,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "description": ""
 }

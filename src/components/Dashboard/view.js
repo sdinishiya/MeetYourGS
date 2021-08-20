@@ -18,16 +18,16 @@ export default function View() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Donations</Title>
-      <Typography component="p" variant="h4">
-        Rs.3,024.00
+      <Title>Total Number of Registered Villagers</Title>
+      <Typography component="p" variant="h5">
+        38,024
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 March, 2021
+        as at 25 March, 2020
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
+          View Villagers
         </Link>
       </div>
     </React.Fragment>

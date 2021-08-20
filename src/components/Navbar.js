@@ -32,6 +32,7 @@ function Navbar() {
             <b> MYGS </b>
             <i class='fab fa-typo3' />
           </Link>
+          <br /> 
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -65,7 +66,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Profile
+                Dashboard
               </Link>
             </li>
 

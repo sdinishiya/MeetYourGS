@@ -1,65 +1,139 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Table} from 'react-bootstrap';
+
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {Box,Button} from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SearchIcon from '@material-ui/icons/Search';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+// import { Search as SearchIcon } from 'react-feather';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+// const mystyle = {
+//   acceptbtn: {
+//       marginTop: '10px',
+//       width: '125px',
+//       height: '30px',
+//       fontSize: '14px',
+//       backgroundColor: '#16ab31',
+//       cursor: 'pointer',
+//       border: 'none',
+//       borderRadius: '5px',
+//       color: 'white',
+//       marginRight: '30px'
+//   },
+//   declinebtn: {
+//     marginTop: '10px',
+//     width: '125px',
+//     height: '30px',
+//     fontSize: '14px',
+//     backgroundColor: '#e02424',
+//     cursor: 'pointer',
+//     border: 'none',
+//     borderRadius: '5px',
+//     color: 'white',
+//     marginRight: '30px'
+// }
+// };
 
-function createData(donorid, fullname, address, time, telephone, email) {
-  return { donorid, fullname, address, time , telephone, email};
-}
+export default function AppointmentConfirm() {
+  const [searchTerm,setSearchTerm]=useState("");
+  const [viewList,setviewList]=useState([])
+  // const classes = useStyles();
 
-const rows = [
-  createData('V001', 'Mohomed Salman', '12.07.2021', '10.30', '0771234567', 'salman@gmail.com'),
-  createData('V005', 'Maheshi Yatipansalawa', '19.07.2021', '14.30', '0775678901', 'maheshi@gmail.com'),
-];
+  useEffect(()=>{
+    axios.get("http://localhost:3001/appconfirm").then((response)=>{
+        setviewList(response.data)
+    })
+  },[])
 
-<br></br>
-export default function ConfirmedAppointment() {
-  const classes = useStyles();
+
+  // const [newName,setNewName]=useState("");
+  // const updateMaterial =(materialid)=>{
+  //   axios.put("http://localhost:3001/update",{
+  //     id:materialid,
+  //     name:newName,
+  //   });
+  //   setNewName("")
+  // };
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
 
   return (
-    
-    <div>
-      <br />
-    <h1> Confirmed Appointment Details</h1>
-    <br />
-    <TableContainer component={Paper}>
-      <br />
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center"><b>Appointment ID</b></TableCell>
-            <TableCell align="center"><b>Villager Name</b></TableCell>
-            <TableCell align="center"><b>Date</b></TableCell>
-            <TableCell align="center"><b>Time</b></TableCell>
-            <TableCell align="center"><b>Phone</b></TableCell>
-            <TableCell align="center"><b>Email</b></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell align="center">{row.donorid}</TableCell>
-              <TableCell align="center">{row.fullname}</TableCell>
-              <TableCell align="center">{row.address}</TableCell>
-              <TableCell align="center">{row.time}</TableCell>
-              <TableCell align="center">{row.telephone}</TableCell>
-              <TableCell align="center">{row.email}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-    </div>
-  );
+    <div ><br/>
+                <div className='box-main'>
+                <h1> Confirmed Appointment Details</h1>
+                  {/* <Box justifyContent="flex-start" ml={5}>
+                  <div className="searchbar">
+                   <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
+                   <SearchIcon  className='searchicon'/>
+                </div>
+                  </Box> */}
+                {/* <Box justifyContent="flex-end" ml={120}>
+                <Link  to='/materials/AddMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add Materials</button> </Link>
+                <Link to='/materials/SupplyMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Supply Material</button></Link>
+                </Box> */}
+                {/* <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add</button> */}
+                </div><br/> 
+
+                {/* <Table  bordered hover responsive> */}
+              <TableContainer>
+                <Table hover responsive>
+                  <thead className="tableheading">
+                    <tr>
+                      <td align="center" scope="col"><b>Appointment ID</b></td>
+                      <td align="center" scope="col"><b>Villager NIC</b></td>
+                      <td align="center" scope="col"><b>Villager Name</b></td>
+                      <td align="center" scope="col"><b>Phone</b></td>
+                      <td align="center" scope="col"><b>Email</b></td>
+                      <td align="center" scope="col"><b>Description</b></td>
+                    </tr>
+                  </thead>
+                 <tbody className="tablebody">
+                     {viewList.filter(val=>{if(searchTerm===""){
+                       return val;
+                     }else if(
+                       val.name.toLowerCase().includes(searchTerm.toLowerCase()) || val.email.toLowerCase().includes(searchTerm.toLowerCase())) 
+                     {
+                       return val
+                     }
+                    }).map((record)=>{
+                      return(
+                       <tr>
+                       <td align="center" scope="row" >{record.bookID}</td>
+                       <td align="center">{record.nic}</td>
+                       <td align="center">{record.name}</td>
+                       <td align="center">{record.phone}</td>
+                       <td align="center">{record.email}</td>
+                       <td align="center">{record.des}</td>
+                      </tr>
+                       )
+                     })}   
+                    
+                  </tbody> 
+                </Table>
+              </TableContainer>
+              </div>
+           
+  )
 }

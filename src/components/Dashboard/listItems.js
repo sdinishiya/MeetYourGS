@@ -42,7 +42,7 @@ export const mainListItems = (
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <Link to='/Dashboard/Donor_mgt' className='nav-link1'>
+      <Link to='/Donors/donationdash' className='nav-link1'>
       <ListItemText primary="Donor & Donations" />
       </Link>
     </ListItem>

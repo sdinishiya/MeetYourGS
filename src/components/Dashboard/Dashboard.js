@@ -20,10 +20,16 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 
-import People from '../tables/viewPeople';
-import Donor from '../tables/Donor_mgt';
+
 import View from './view';
-import Graph from './graph';
+import View1 from './view1';
+import View2 from './view2';
+import View3 from './view3';
+import View4 from './view4';
+import View5 from './view5';
+import View6 from './view6';
+import View7 from './view7';
+import View8 from './view8';
 import Graph1 from './graph1';
 
 function Copyright() {
@@ -182,31 +188,67 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-          
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Graph />
-              </Paper>
-            </Grid>
            
-            <Grid item xs={12} md={4} lg={3}>
+           <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <View />
               </Paper>
             </Grid>
 
-            <Grid item xs={12} md={8} lg={9}>
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View1 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View2 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View3 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View4 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View5 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View6 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View7 />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <View8 />
+              </Paper>
+            </Grid>
+
+            {/* <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <Graph1 />
               </Paper>
-            </Grid>
-           
-           
-            {/* <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Donor />
-              </Paper>
             </Grid> */}
+           
           </Grid>
           <Box pt={4}>
             

@@ -11,12 +11,7 @@ function Cards() {
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
-            <CardItem
-              src='images/img-book.jpg'
-              text='Schedule appoitnments according to your convenience with your GS'
-              label='Appointments'
-              path='/appointment'
-            />
+            
             <CardItem
               src='images/img-form.jpg'
               text='Download official forms online!'
@@ -24,19 +19,31 @@ function Cards() {
               path='/forms/form2'
             />
             <CardItem
-              src='images/img-donate.jpg'
-              text='Make donations and become a donor!'
-              label='Donations'
-              path='/Donations/donate2'
-            />
-          </ul>
-          <ul className='cards__items'>
-            
-            <CardItem
               src='images/img-cons.jpg'
               text='View Past Projects, Current projects and Projects planned in the future  '
               label='Projects'
               path='/projects/grids/PresentProjects'
+            />
+            <CardItem
+              src='images/img-rec.jpg'
+              text='Resource and material Distribution details'
+              label='Resource'
+              path='/resourcematerial/card1'
+            />
+          </ul>
+          <ul className='cards__items'>
+          
+          <CardItem
+              src='images/img-book.jpg'
+              text='Schedule appoitnments according to your convenience with your GS'
+              label='Appointments'
+              path='/Appointment/bookApp1'
+            />
+            <CardItem
+              src='images/img-donate.jpg'
+              text='Make donations and become a donor!'
+              label='Donations'
+              path='/Donations/donate2'
             />
             <CardItem
             src='images/img-forum.jpg'
@@ -44,12 +51,6 @@ function Cards() {
             label='Forum Discussions'
             path='/public_viewforum'
           />
-            <CardItem
-              src='images/img-rec.jpg'
-              text='Resource and material Distribution details'
-              label='Resource'
-              path='/resourcematerial/card1'
-            />
             
           </ul>
         </div>
