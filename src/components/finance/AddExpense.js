@@ -2,33 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
-function Add_Materials() {
+function Add_Expense() {
 
-    const [addeddate,setaddeddate] = useState("");
-    const [materialid,setmaterialid] = useState("");
-    const [materialname,setmaterialname] = useState("");
-    const [quantity,setquantity] = useState("");
+    const [date,setdate] = useState("");
+    const [receiptno,setreceiptno] = useState("");
+    const [description,setdescription] = useState("");
+    const [expense,setexpense] = useState("");
 
-    // const [materialList,setmaterialList] = useState([]);
 
-    const add_Materials = ()=>{
-      console.log(materialid);
-       axios.post('http://localhost:3001/create',{
-        addeddate:addeddate,
-        // materialid:materialid,
-        materialname:materialname,
-        quantity:quantity,
+    const add_Expense = ()=>{
+      console.log(receiptno);
+       axios.post('http://localhost:3001/expensecreate',{
+        date:date,
+        receiptno:receiptno,
+        description:description,
+        expense:expense,
 
         }).then(()=>{
            console.log("success");
          });
     };
-  //   const getMaterials = () => {
-  //     axios.get("http://localhost:3001/materials").then((response)=>{
-  //     console.log(response);
-  //     setmaterialList(response.data)
-  //   });
-  // };
+
 
   const mystyle = {
     formstep: {
@@ -74,7 +68,7 @@ function Add_Materials() {
       width: '145px',
       height: '40px',
       fontSize: '18px',
-      backgroundColor: '#0A6466',
+      backgroundColor: '#048a0d',
       cursor: 'pointer',
       border: 'none',
       borderRadius: '5px',
@@ -101,24 +95,23 @@ function Add_Materials() {
   return (
     <div align='center'>
       <div style={mystyle.formbox}>
-        <h1 style={mystyle.formhead}> Add New Material </h1>
+        <h1 style={mystyle.formhead}> Add New Expense </h1>
         <form >
           <div >
 
-            <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setaddeddate(event.target.value);}} required placeholder="Deadline"/><br />
-            {/* <input type="text"style={mystyle.forminput}name="Material ID" onChange={(event)=>{setmaterialid(event.target.value);}} required placeholder="Material ID...."/><br /> */}
-            <input type="text"style={mystyle.forminput}name="Material Name" onChange={(event)=>{setmaterialname(event.target.value);}} required placeholder="Material Name...."/><br />
-            <input type="text"style={mystyle.forminput}name="Quantity" onChange={(event)=>{setquantity(event.target.value);}} required placeholder="Enter Quantity...."/><br />
-
+            <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setdate(event.target.value);}} required placeholder="Deadline"/><br />
+            <input type="text"style={mystyle.forminput}name="Receipt No" onChange={(event)=>{setreceiptno(event.target.value);}} required placeholder="Receipt No...."/><br />
+            <input type="text"style={mystyle.forminput}name="Description" onChange={(event)=>{setdescription(event.target.value);}} required placeholder="Description...."/><br />
+            <input type="text"style={mystyle.forminput}name="Amount" onChange={(event)=>{setexpense(event.target.value);}} required placeholder="Amount...."/><br />  
           </div>
-
+          
           <div display='flex' align='right'>
 
-            <Link to='/resourcematerial/const.materials'>
-              <button type="submit" onClick={add_Materials} id="submitBtn"style={mystyle.submitBtn}> Add</button>
+            <Link to='/finance/viewFinance'>
+              <button type="submit" onClick={add_Expense} id="submitBtn"style={mystyle.submitBtn}> Add</button>
             </Link>
 
-            <Link to='/resourcematerial/const.materials'>
+            <Link to='/finance/viewFinance'>
               <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
             </Link>
           </div>
@@ -138,4 +131,4 @@ function Add_Materials() {
   )
 }
 
-export default Add_Materials;
+export default Add_Expense;

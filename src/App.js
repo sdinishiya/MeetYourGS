@@ -37,9 +37,16 @@ import People from './components/tables/viewPeople';
 import Complaint from './components/tables/viewComplaint';
 import Query from './components//tables/viewQuery';
 import Voters from './components/tables/viewVoter';
-import Finance from './components/tables/viewFinance';
+import Finance from './components/finance/viewFinance';
 import Album from './components/forms/form2';
 import FreeSolo from './components/forms/viewforms';
+import Add_Fund from './components/finance/Addfund';
+import Add_Expense from './components/finance/AddExpense';
+import Cardd from './components/finance/cardd';
+import Fund from './components/finance/projectfund';
+import Add_ProjectFund from './components/finance/Addprojectfund';
+import Allocate_Fund from './components/finance/AllocateProjectfund';
+
 
 function App() {
   return (
@@ -71,6 +78,10 @@ function App() {
           <Route exact path="/materials/SupplyMaterials2" component = {Supply_Materials2} />
           <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
           <Route exact path="/Donations/donate2" component = {Donate2} />
+          <Route exact path="/finance/Addfund" component = {Add_Fund} />
+          <Route exact path="/finance/AddExpense" component = {Add_Expense} />
+          <Route exact path="/finance/Addprojectfund" component = {Add_ProjectFund} />
+          <Route exact path="/finance/AllocateProjectfund" component = {Allocate_Fund} />
           <Route path='/remove_villager' component={removeVillager} />
           <Route path='/register_villagers' component={RegisterVillager} />
           <Route path='/register_voters' component={RegisterVoter} />
@@ -82,7 +93,9 @@ function App() {
           <Route path='/tables/viewComplaint' component={Complaint} />
           <Route path='/tables/viewQuery' component={Query} />
           <Route path='/tables/viewVoter' component={Voters} />
-          <Route path='/tables/viewFinance' component={Finance} />
+          <Route path='/finance/viewFinance' component={Finance} />
+          <Route path='/finance/projectfund' component={Fund} />
+          <Route path='/finance/cardd' component={Cardd} />
           <Route path='/forms/form2' component={Album} />
           <Route path='/forms/viewforms' component={FreeSolo} />
           

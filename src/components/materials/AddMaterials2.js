@@ -1,7 +1,34 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import shadows from 'src/theme/shadows';
+import axios from "axios";
+
 function Add_Materials2() {
+
+    const [addeddate,setaddeddate] = useState("");
+    const [materialid,setmaterialid] = useState("");
+    const [materialname,setmaterialname] = useState("");
+    const [quantity,setquantity] = useState("");
+
+    // const [materialList,setmaterialList] = useState([]);
+
+    const add_Materials2 = ()=>{
+      console.log(materialid);
+       axios.post('http://localhost:3001/other',{
+        addeddate:addeddate,
+        // materialid:materialid,
+        materialname:materialname,
+        quantity:quantity,
+
+        }).then(()=>{
+           console.log("success");
+         });
+    };
+  //   const getMaterials = () => {
+  //     axios.get("http://localhost:3001/materials").then((response)=>{
+  //     console.log(response);
+  //     setmaterialList(response.data)
+  //   });
+  // };
 
   const mystyle = {
     formstep: {
@@ -78,61 +105,21 @@ function Add_Materials2() {
         <form >
           <div >
 
-            <input
-              type="date"
-              style={mystyle.forminput}
-              name="deadline"
-              placeholder="Deadline"
-            /><br />
-
-            <input
-              type="text"
-              style={mystyle.forminput}
-              // className="forminput"
-              name="Material ID"
-              placeholder="Material ID...."
-            /><br />
-
-            <input
-              type="text"
-              style={mystyle.forminput}
-              name="Material Name"
-              placeholder="Material Name...."
-            /><br />
-
-            <input
-              type="text"
-              style={mystyle.forminput}
-              name="Quantity"
-              placeholder="Enter Quantity...."
-
-            /><br />
-
-           
-
-
-
+            <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setaddeddate(event.target.value);}} required placeholder="Deadline"/><br />
+            {/* <input type="text"style={mystyle.forminput}name="Material ID" onChange={(event)=>{setmaterialid(event.target.value);}} required placeholder="Material ID...."/><br /> */}
+            <input type="text"style={mystyle.forminput}name="Material Name" onChange={(event)=>{setmaterialname(event.target.value);}} required placeholder="Material Name...."/><br />
+            <input type="text"style={mystyle.forminput}name="Quantity" onChange={(event)=>{setquantity(event.target.value);}} required placeholder="Enter Quantity...."/><br />
 
           </div>
 
           <div display='flex' align='right'>
 
             <Link to='/resourcematerial/othermaterials'>
-              <button
-                type="submit"
-                id="submitBtn"
-                style={mystyle.submitBtn}
-              //className="nextBtn"
-              > Add</button>
+              <button type="submit" onClick={add_Materials2} id="submitBtn"style={mystyle.submitBtn}> Add</button>
             </Link>
 
             <Link to='/resourcematerial/othermaterials'>
-              <button
-                type="submit"
-                id="submitBtn"
-                style={mystyle.closeBtn}
-              //className="nextBtn"
-              > Cancel</button>
+              <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
             </Link>
           </div>
 
@@ -140,6 +127,12 @@ function Add_Materials2() {
         </form>
 
       </div>
+      {/* <div>
+      <button onClick={getMaterials}>Show Materials</button>
+      {materialList.map((val, key)=>{
+        return <div> {val.addeddate} </div>
+      })}
+    </div> */}
     </div>
 
   )

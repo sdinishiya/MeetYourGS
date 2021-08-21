@@ -34,7 +34,7 @@ export const mainListItems = (
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <Link to='/tables/viewFinance' className='nav-link1'>
+      <Link to='/finance/cardd' className='nav-link1'>
       <ListItemText primary="Finance" />
       </Link>
     </ListItem>

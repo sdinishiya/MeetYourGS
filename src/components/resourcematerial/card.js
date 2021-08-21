@@ -13,16 +13,19 @@ function Card() {
             <CardItem
               src='../images/img-const.jpg'
               text='Construction Materials'
+              label='Resource'
               path='/resourcematerial/const.materials'
             />
             <CardItem
               src='../images/img-Agri.jpg'
               text='Agriculture Materials'
+              label='Resource'
               path='/resourcematerial/agri.materials'
             />
             <CardItem
               src='../images/img-others.jpg'
               text='Other Materials'
+              label='Resource'
               path='/resourcematerial/othermaterials'
             />
           </ul>
