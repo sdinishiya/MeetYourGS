@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import GSFooter from '../GSFooter';
+import GSNavbar from '../gs_navbar';
 
 function Schedule() {
     const [appID,setID] = useState("");
@@ -91,7 +93,8 @@ function Schedule() {
   };
 
   return (
-    
+    <div>
+       <GSNavbar />
     <div align='center'>
       <br/><br/>
       <div style={mystyle.formbox}>
@@ -122,6 +125,10 @@ function Schedule() {
 
       </div>
     </div>
+    <br /> 
+    <GSFooter />
+  </div>
+
 
   )
 }

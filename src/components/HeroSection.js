@@ -10,13 +10,13 @@ function HeroSection() {
       <h1>MEET YOUR GS</h1>
       <h3>UDAPALATHA GS WASAMA</h3>
       <div className='hero-btns'>
-        <Button
+        {/* <Button
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           GET STARTED 
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

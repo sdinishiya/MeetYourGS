@@ -3,11 +3,7 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-<<<<<<< HEAD
-function log_Navbar() {
-=======
 function loggednavbar() {
->>>>>>> c94a977331f4276fe29e37f56b4602fd6a5a14a7
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -56,7 +52,7 @@ function loggednavbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/login'
+                to='/services'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -65,24 +61,14 @@ function loggednavbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/login'
+                to='/'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Profile
+                Logout
               </Link>
             </li>
-
-            {/* <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Sign In
-              </Link>
-            </li> */}
-          </ul>
+            </ul>
           {/* {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>} */}
         </div>
       </nav>

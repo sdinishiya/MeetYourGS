@@ -3,7 +3,7 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function GsNavbar() {
+function GSNavbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -37,7 +37,7 @@ function GsNavbar() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/GS_home' className='nav-links' onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
@@ -61,11 +61,11 @@ function GsNavbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/dashboard'
+                to='/Dashboard/Dashboard'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Dashboard
+                Dashobard
               </Link>
             </li>
 
@@ -86,4 +86,4 @@ function GsNavbar() {
   );
 }
 
-export default gsNavbar;
+export default GSNavbar;

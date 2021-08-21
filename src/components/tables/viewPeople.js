@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import GSNavbar from '../gs_navbar';
 
 const useStyles = makeStyles({
   table: {
@@ -43,7 +44,8 @@ export default function People() {
   const classes = useStyles();
 
   return (
-    
+    <div> 
+      <GSNavbar />
     <div>
       <br />
     <h1> Villager Details</h1>
@@ -112,7 +114,7 @@ export default function People() {
     <br />
     <footer/>
     </div>
-    
+    </div>
     
 
     

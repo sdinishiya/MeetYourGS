@@ -32,7 +32,6 @@ function Navbar() {
             <b> MYGS </b>
             <i class='fab fa-typo3' />
           </Link>
-          <br /> 
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -62,14 +61,13 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/Dashboard/Dashboard'
+                to='/login'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Dashboard
+                Sign In
               </Link>
             </li>
-
             {/* <li>
               <Link
                 to='/sign-up'
@@ -79,8 +77,9 @@ function Navbar() {
                 Sign In
               </Link>
             </li> */}
+            {/* {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>} */}
           </ul>
-          {/* {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>} */}
+          
         </div>
       </nav>
     </>

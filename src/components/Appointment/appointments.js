@@ -1,15 +1,18 @@
 import React from 'react';
 import '../../App.css';
 import Appcards from './app_cards';
+import GSFooter from '../GSFooter';
+import GSNavbar from '../gs_navbar';
 
-import Footer from '../Footer';
 
 function Appoint() {
   return (
     <div>
+       <GSNavbar />
+      <div> 
       <Appcards />
-      <Footer />
-
+      </div>
+      <GSFooter />
     </div>
 
   );
