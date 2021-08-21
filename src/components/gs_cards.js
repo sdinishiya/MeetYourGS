@@ -2,11 +2,11 @@ import React from 'react';
 import './Cards.css';
 import CardItem from './CardItem';
 
-function Cards() {
+function Cards_gs() {
   return (
     <div className='cards'>
-      <h1> Hi there! Welcome to MeetYourGS </h1>
-      <h3> We are the Udapalatha GS wasama under the Kandy Division Secretariate. We look forward to serve you more through this platform.</h3>
+      <h1> Hi GS! Welcome </h1>
+      <h3> Udapalatha GS wasama under the Kandy Division Secretariate, looks forward to serve public through this platform </h3>
 
       {/* <h1> Our Services </h1> */}
       <div className='cards__container'>
@@ -32,32 +32,10 @@ function Cards() {
               path='/resourcematerial/card1'
             />
           </ul>
-          <ul className='cards__items'>
-          
-          <CardItem
-              src='images/img-book.jpg'
-              text='Schedule appoitnments according to your convenience with your GS'
-              label='Appointments'
-              path='/Appointment/bookApp1'
-            />
-            <CardItem
-              src='images/img-donate.jpg'
-              text='Make donations and become a donor!'
-              label='Donations'
-              path='/Donations/donate2'
-            />
-            <CardItem
-            src='images/img-forum.jpg'
-            text='Questions? Get them answered'
-            label='Forum Discussions'
-            path='/public_viewforum'
-          />
-            
-          </ul>
         </div>
       </div>
     </div>
   );
 }
 
-export default Cards;
+export default Cards_gs;

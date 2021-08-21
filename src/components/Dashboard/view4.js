@@ -14,20 +14,20 @@ const useStyles = makeStyles({
   },
 });
 
-export default function View() {
+export default function View4() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Total Number of Registered Villagers</Title>
+      <Title>Recent Donations</Title>
       <Typography component="p" variant="h5">
-        38,024
+        Rs.3,500.00
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
-        as at 25 March, 2020
+        on 10 August, 2021
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>
-          View Villagers
+          View Donations
         </Link>
       </div>
     </React.Fragment>

@@ -1,13 +1,13 @@
 import React from 'react';
 import './Footer.css';
-import { Button } from './Button';
+//import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
     <div>
     <div className='footer-container'>
-      <section className='footer-subscription'>
+      {/* <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
           Join the newsletter to receive messages and stay updated
         </p>
@@ -25,7 +25,7 @@ function Footer() {
             <Button buttonStyle='btn--outline'>Subscribe</Button>
           </form>
         </div>
-      </section>
+      </section> */}
 
       <div class='footer-links'>
         <div className='footer-link-wrapper'>
@@ -52,20 +52,20 @@ function Footer() {
           </div>
         </div>
       </div>
-      <section class='social-media'>
+      {/* <section class='social-media'>
         <div class='social-media-wrap'>
           <div class='footer-logo'>
-            {/* <Link to='/' className='social-logo'>
+            <Link to='/' className='social-logo'>
               MYGS
               <i class='fab fa-typo3' />
-            </Link> */}
+            </Link>
           </div>
           <small class='website-rights' align='center'> MYGS © 2020 </small>
   
         </div>
-      </section>
+      </section> */}
     </div>
-    </div>
+  </div>
   );
 }
 

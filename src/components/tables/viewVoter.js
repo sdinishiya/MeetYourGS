@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import GSNavbar from '../gs_navbar';
 
 const useStyles = makeStyles({
   table: {
@@ -31,7 +32,8 @@ export default function Voters() {
   const classes = useStyles();
 
   return (
-    
+    <div> 
+      <GSNavbar />
     <div>
       <br />
     <h1> Voters Details</h1>
@@ -64,5 +66,6 @@ export default function Voters() {
       </Table>
     </TableContainer>
     </div>
+  </div> 
   );
 }

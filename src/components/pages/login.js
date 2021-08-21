@@ -6,6 +6,8 @@
 // }
 import React from 'react';
 import styled from 'styled-components';
+import Footer from '../Footer';
+import Navbar from '../Navbar';
 import {AccountBox} from "../accountBox";
 
 const AppContainer = styled.div`
@@ -19,6 +21,8 @@ const AppContainer = styled.div`
 
 const login = () => {
 return (
+	<div> 
+		 <Navbar />
 	<div
 	style={{
     
@@ -29,9 +33,13 @@ return (
 	}}
 	>
 	<h2> </h2>
+
 	 <AppContainer>
       <AccountBox />
     </AppContainer>
+	
+	</div>
+	<Footer />
 	</div>
 );
 };

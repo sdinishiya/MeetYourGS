@@ -46,58 +46,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RegisterVoter() {
+export default function RegisterVillager() {
   const classes = useStyles();
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Register Voters
+        
+        <Typography component="h1" variant="h5" color="FFAE2A"><b>
+          Register Voters</b>
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="vid"
-                name="villagerId"
-                variant="outlined"
-                required
-                fullWidth
-                id="villagerId"
-                label="Villager ID"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fullname"
-                name="fullName"
-                variant="outlined"
-                required
-                fullWidth
-                id="fullName"
-                label="Full Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="permanentAddress"
-                name="permAdd"
-                variant="outlined"
-                required
-                fullWidth
-                id="permAdd"
-                label="Permanent Address"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
+          <Grid item xs={12} >
               <TextField
                 autoComplete="nic"
                 name="nIC"
@@ -110,6 +72,68 @@ export default function RegisterVoter() {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="fname"
+                name="fName"
+                variant="outlined"
+                required
+                fullWidth
+                id="fName"
+                label="First Name"
+                autoFocus
+              />
+              
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="lname"
+                name="lName"
+                variant="outlined"
+                required
+                fullWidth
+                id="lName"
+                label="Last Name"
+                autoFocus
+              />
+              
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="add1"
+                name="add1"
+                variant="outlined"
+                required
+                fullWidth
+                id="add1"
+                label="Address (Line 1)"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="add2"
+                name="add2"
+                variant="outlined"
+                required
+                fullWidth
+                id="add2"
+                label="Address (Line 2)"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="add3"
+                name="add3"
+                variant="outlined"
+                required
+                fullWidth
+                id="add3"
+                label="Address (Line 3)"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="telephone"
                 name="tel"
@@ -142,8 +166,8 @@ export default function RegisterVoter() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
-            className={classes.submit}
+            color="FFAE2A"
+      
           >
             Register
           </Button>

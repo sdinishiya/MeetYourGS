@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RegisterVillager() {
+export default function AllocateFunds() {
   const classes = useStyles();
 
   return (
@@ -55,122 +55,95 @@ export default function RegisterVillager() {
       <div className={classes.paper}>
         
         <Typography component="h1" variant="h5" color="FFAE2A"><b>
-          Register Villagers</b>
+          Allocate Funds</b>
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-          <Grid item xs={12} >
+          <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="nic"
-                name="nIC"
+                autoComplete="gsdid"
+                name="gsdID"
                 variant="outlined"
                 required
                 fullWidth
-                id="nIC"
-                label="NIC"
+                id="gsdID"
+                label="GSD ID"
                 autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="fName"
+                autoComplete="gsdname"
+                name="gsdName"
                 variant="outlined"
                 required
                 fullWidth
-                id="fName"
-                label="First Name"
-                autoFocus
-              />
-              
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="lname"
-                name="lName"
-                variant="outlined"
-                required
-                fullWidth
-                id="lName"
-                label="Last Name"
+                id="gsdName"
+                label="GSD Name"
                 autoFocus
               />
               
             </Grid>
             <Grid item xs={12}>
               <TextField
-                autoComplete="add1"
-                name="add1"
+                autoComplete="gsName"
+                name="gsName"
                 variant="outlined"
                 required
                 fullWidth
-                id="add1"
-                label="Address (Line 1)"
+                id="gsName"
+                label="GS Name"
                 autoFocus
               />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="add2"
-                name="add2"
-                variant="outlined"
-                required
-                fullWidth
-                id="add2"
-                label="Address (Line 2)"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="add3"
-                name="add3"
-                variant="outlined"
-                required
-                fullWidth
-                id="add3"
-                label="Address (Line 3)"
-                autoFocus
-              />
+              
             </Grid>
             <Grid item xs={12}>
               <TextField
                 autoComplete="telephone"
-                name="tel"
+                name="telephone"
                 variant="outlined"
                 required
                 fullWidth
-                id="tel"
+                id="telephone"
                 label="Telephone"
                 autoFocus
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                autoComplete="project"
+                name="project"
                 variant="outlined"
+                required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="project"
+                label="Project"
+                autoFocus
               />
             </Grid>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="address" color="primary" />}
-                label="Use this address to reach user"
+              <TextField
+                autoComplete="amount"
+                name="amount"
+                variant="outlined"
+                required
+                fullWidth
+                id="amount"
+                label="Amount to Allocate"
+                autoFocus
               />
             </Grid>
           </Grid>
+          <br></br>
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="FFAE2A"
-      
           >
-            Submit
+            Confirm
           </Button>
+          
         </form>
       </div>
       <Box mt={5}>
