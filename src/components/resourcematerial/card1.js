@@ -5,27 +5,27 @@ import CardItem from '../CardItem';
 function Card1() {
   return (
     <div className='cards'>
-      <h1> Available Stock Details </h1>
+      <h1> Available Resource Materials </h1>
 
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='../images/img-const.jpg'
+              src='../images/Constmaterials.jpg'
               text='Construction Materials'
-              label='Resource'
+              label='Construction'
               path='/resourcematerial/const.materials1'
             />
             <CardItem
               src='../images/img-Agri.jpg'
               text='Agriculture Materials'
-              label='Resource'
+              label='Agriculture'
               path='/resourcematerial/agri.materials1'
             />
             <CardItem
-              src='../images/img-others.jpg'
+              src='../images/othermaterials.jpg'
               text='Other Materials'
-              label='Resource'
+              label='Dry Rations'
               path='/resourcematerial/othermaterials1'
             />
           </ul>

@@ -70,6 +70,7 @@ export default function ConstResources() {
                       <td align = "center" scope="col"><b>Added Date</b></td>
                       <td align = "center" scope="col"><b>Material ID</b></td>
                       <td align = "center" scope="col"><b>Material Name</b></td>
+                      <td align = "center" scope="col"><b>Description</b></td>
                       <td align = "center" scope="col"><b>Quantity</b></td>
                       {/* <td align = "center"><b>Action</b></td> */}
                     </tr>
@@ -83,11 +84,16 @@ export default function ConstResources() {
                        return val
                      }
                     }).map((record)=>{
+                      const dt = new Date(record.addeddate);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
                       return(
                        <tr>
-                       <td align = "center" scope="row">{record.addeddate}</td>
+                       <td align="center" scope="row">{year + month + day}</td>
                        <td align = "center" > {record.materialid}</td>
                        <td align = "center"> {record.materialname}</td>
+                       <td align = "center"> {record.description}</td>
                        <td align = "center"> {record.quantity}</td>
                        {/* <td align = "center">
                          

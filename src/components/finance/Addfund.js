@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 
-function Add_Fund() {
+function AddFund() {
 
     const [date,setdate] = useState("");
     const [receiptno,setreceiptno] = useState("");
@@ -10,8 +11,10 @@ function Add_Fund() {
     const [income,setincome] = useState("");
     // const [expense,setexpense] = useState("");
     // const [materialList,setmaterialList] = useState([]);
+    const history  = useHistory();
 
-    const add_fund = ()=>{
+    const add_fund = (e)=>{
+      e.preventDefault();
       console.log(receiptno);
        axios.post('http://localhost:3001/financecreate',{
         date:date,
@@ -21,6 +24,8 @@ function Add_Fund() {
 
         }).then(()=>{
            console.log("success");
+           history.push("/finance/viewFinance");
+
          });
     };
   //   const getMaterials = () => {
@@ -99,13 +104,13 @@ function Add_Fund() {
   };
 
   return (
-    <div align='center'>
+    <div align="center">
       <div style={mystyle.formbox}>
-        <h1 style={mystyle.formhead}> Add Fund </h1>
+        <h1 style={mystyle.formhead}> Add Received Cash </h1>
         <form >
           <div >
 
-            <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setdate(event.target.value);}} required placeholder="Deadline"/><br />
+            <input type="date"style={mystyle.forminput}name="Date" onChange={(event)=>{setdate(event.target.value);}} required placeholder="Date"/><br />
             <input type="text"style={mystyle.forminput}name="Receipt No" onChange={(event)=>{setreceiptno(event.target.value);}} required placeholder="Receipt No...."/><br />
             <input type="text"style={mystyle.forminput}name="Description" onChange={(event)=>{setdescription(event.target.value);}} required placeholder="Description...."/><br />
             <input type="text"style={mystyle.forminput}name="Income" onChange={(event)=>{setincome(event.target.value);}} required placeholder="Amount...."/><br />    
@@ -113,9 +118,9 @@ function Add_Fund() {
           
           <div display='flex' align='right'>
 
-            <Link to='/finance/viewFinance'>
+            {/* <Link to='/finance/viewFinance'> */}
               <button type="submit" onClick={add_fund} id="submitBtn"style={mystyle.submitBtn}> Add</button>
-            </Link>
+            {/* </Link>  */}
 
             <Link to='/finance/viewFinance'>
               <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
@@ -126,15 +131,10 @@ function Add_Fund() {
         </form>
 
       </div>
-      {/* <div>
-      <button onClick={getMaterials}>Show Materials</button>
-      {materialList.map((val, key)=>{
-        return <div> {val.addeddate} </div>
-      })}
-    </div> */}
+  
     </div>
 
   )
 }
 
-export default Add_Fund;
+export default AddFund;

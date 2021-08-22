@@ -47,7 +47,7 @@ export default function OtherResources() {
     
     <div ><br/>
     <div className='box-main'>
-    <h1> Material Details</h1>
+    <h1> Other Material Stock Details</h1>
       <Box justifyContent="flex-start" ml={15}>
     <div className="searchbar">
        <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
@@ -67,6 +67,7 @@ export default function OtherResources() {
           <td align = "center" scope="col"><b>Added Date</b></td>
           <td align = "center" scope="col"><b>Material ID</b></td>
           <td align = "center" scope="col"><b>Material Name</b></td>
+          <td align = "center" scope="col"><b>Description</b></td>
           <td align = "center" scope="col"><b>Quantity</b></td>
           {/* <td align = "center"><b>Action</b></td> */}
         </tr>
@@ -80,11 +81,16 @@ export default function OtherResources() {
            return val
          }
         }).map((record)=>{
+          const dt = new Date(record.addeddate);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
           return(
            <tr>
-           <td align = "center" scope="row">{record.addeddate}</td>
+          <td align="center" scope="row">{year + month + day}</td>
            <td align = "center" > {record.materialid}</td>
            <td align = "center"> {record.materialname}</td>
+           <td align = "center"> {record.description}</td>
            <td align = "center"> {record.quantity}</td>
            {/* <td align = "center">
              

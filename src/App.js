@@ -29,7 +29,7 @@ import Add_Materials1 from './components/materials/AddMaterials1';
 import Supply_Materials1 from './components/materials/SupplyMaterials1';
 import Add_Materials2 from './components/materials/AddMaterials2';
 import Supply_Materials2 from './components/materials/SupplyMaterials2';
- 
+import New_Materials from './components/materials/Addnewmaterial';
  
 import Donor from './components/tables/Donor_mgt';
 import Donation from './components/tables/DonationMgt';
@@ -87,7 +87,7 @@ function App() {
           <Route exact path="/materials/SupplyMaterials1" component = {Supply_Materials1} />
           <Route exact path="/materials/AddMaterials2" component = {Add_Materials2} />
           <Route exact path="/materials/SupplyMaterials2" component = {Supply_Materials2} />
- 
+          <Route exact path="/materials/Addnewmaterial" component = {New_Materials} />
           <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
           <Route exact path="/Donations/donate2" component = {Donate2} />
           <Route exact path="/finance/Addfund" component = {Add_Fund} />

@@ -47,7 +47,7 @@ function Supply_Materials() {
       width: '145px',
       height: '40px',
       fontSize: '18px',
-      backgroundColor: '#0A6466',
+      backgroundColor: '#048a0d',
       cursor: 'pointer',
       border: 'none',
       borderRadius: '5px',
@@ -74,7 +74,7 @@ function Supply_Materials() {
   return (
     <div align='center'>
       <div style={mystyle.formbox}>
-        <h1 style={mystyle.formhead}> Supply Material </h1>
+        <h1 style={mystyle.formhead}> Supply Construction Material </h1>
         <form >
           <div >
 

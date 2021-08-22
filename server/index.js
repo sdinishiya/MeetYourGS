@@ -2,14 +2,13 @@ const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const bcrypt = require('bcrypt');
-const { response } = require('express');
-const app = express();
-const path = require('path');
-const { name } = require('ejs');
-const bodyParser =  require('body-parser')
-app.use(express.json());
-app.use(cors());
-const saltRounds = 10;
+// const { response } = require('express');
+// const app = express();
+// const path = require('path');
+// const { name } = require('ejs');
+// const bodyParser =  require('body-parser')
+// app.use(express.json());
+// app.use(cors());
 const saltRounds = 10;
 
 
@@ -95,10 +94,11 @@ app.post('/create',(req,res)=>{
     const addeddate = req.body.addeddate;
     const materialid = req.body.materialid;
     const materialname = req.body.materialname;
+    const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO constsmaterial (addeddate,materialid,materialname,quantity) VALUES (?,?,?,?)",
-    [addeddate,materialid,materialname,quantity],(err,result)=>{
+    db.query("INSERT INTO constsmaterial (addeddate,materialid,materialname,description,quantity) VALUES (?,?,?,?)",
+    [addeddate,materialid,materialname,description,quantity],(err,result)=>{
         if(err){
             console.log(err);
         } else{
@@ -110,7 +110,7 @@ app.post('/create',(req,res)=>{
 });
 
 app.get('/materials',(req,res)=>{
-    db.query("SELECT * FROM constsmaterial",(err,result,) => {
+    db.query("SELECT * FROM constsmaterial order by materialid ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -119,6 +119,7 @@ app.get('/materials',(req,res)=>{
         
     });
 });
+
 
 app.delete("/delete/:id",(req,res)=>{
     const id = req.params.id;
@@ -150,6 +151,34 @@ app.delete("/delete/:id",(req,res)=>{
     })
   });
 
+  app.post('/createnew',(req,res)=>{
+    console.log(req.body)
+    const materialid = req.body.materialid;
+    const materialname = req.body.materialname;
+
+    db.query("INSERT INTO newconstmaterial (materialid,materialname) VALUES (?,?)",
+    [materialid,materialname],(err,result)=>{
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+    
+});
+
+app.get('/newmaterial',(req,res)=>{
+    db.query("SELECT * FROM newconstmaterial",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
 
 // agrimaterial
 app.post('/agri',(req,res)=>{
@@ -157,10 +186,11 @@ app.post('/agri',(req,res)=>{
     const addeddate = req.body.addeddate;
     const materialid = req.body.materialid;
     const materialname = req.body.materialname;
+    const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO agrimaterial (addeddate,materialid,materialname,quantity) VALUES (?,?,?,?)",
-    [addeddate,materialid,materialname,quantity],(err,result)=>{
+    db.query("INSERT INTO agrimaterial (addeddate,materialid,materialname,description,quantity) VALUES (?,?,?,?)",
+    [addeddate,materialid,materialname,description,quantity],(err,result)=>{
         if(err){
             console.log(err);
         } else{
@@ -172,7 +202,7 @@ app.post('/agri',(req,res)=>{
 });
 
 app.get('/agrimaterials',(req,res)=>{
-    db.query("SELECT * FROM agrimaterial",(err,result,) => {
+    db.query("SELECT * FROM agrimaterial order by materialid ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -197,10 +227,11 @@ app.post('/other',(req,res)=>{
     const addeddate = req.body.addeddate;
     const materialid = req.body.materialid;
     const materialname = req.body.materialname;
+    const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO othermaterial (addeddate,materialid,materialname,quantity) VALUES (?,?,?,?)",
-    [addeddate,materialid,materialname,quantity],(err,result)=>{
+    db.query("INSERT INTO othermaterial (addeddate,materialid,materialname,description,quantity) VALUES (?,?,?,?)",
+    [addeddate,materialid,materialname,description,quantity],(err,result)=>{
         if(err){
             console.log(err);
         } else{
@@ -212,7 +243,7 @@ app.post('/other',(req,res)=>{
 });
 
 app.get('/othermaterials',(req,res)=>{
-    db.query("SELECT * FROM othermaterial",(err,result,) => {
+    db.query("SELECT * FROM othermaterial order by materialid ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -244,7 +275,7 @@ app.post('/financecreate',(req,res)=>{
 });
 
 app.get('/transaction',(req,res)=>{
-    db.query("SELECT * FROM finance",(err,result,) => {
+    db.query("SELECT * FROM finance order by date ASC" ,(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -297,7 +328,7 @@ app.post('/fundcreate',(req,res)=>{
 });
 
 app.get('/funds',(req,res)=>{
-    db.query("SELECT * FROM fund",(err,result,) => {
+    db.query("SELECT * FROM fund order by date ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {

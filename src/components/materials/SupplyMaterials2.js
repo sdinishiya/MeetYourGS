@@ -47,7 +47,7 @@ function Supply_Materials2() {
       width: '145px',
       height: '40px',
       fontSize: '18px',
-      backgroundColor: '#0A6466',
+      backgroundColor: '#048a0d',
       cursor: 'pointer',
       border: 'none',
       borderRadius: '5px',
