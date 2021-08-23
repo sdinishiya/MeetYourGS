@@ -238,11 +238,6 @@ app.get('/agrimaterials',(req,res)=>{
 
 
 
-
-
-
-
-
 // othermaterial
 app.post('/other',(req,res)=>{
     console.log(req.body)
@@ -361,7 +356,6 @@ app.get('/funds',(req,res)=>{
 });
 
 // Fund Allocation
-
 app.post('/fundallocatecreate',(req,res)=>{
     console.log(req.body)
     const date = req.body.date;
@@ -381,16 +375,18 @@ app.post('/fundallocatecreate',(req,res)=>{
     
 });
 
-//appointment
+
+//schedule
 app.post('/schedule',(req,res)=>{
     console.log(req.body)
     const gsname = req.body.gsname;
     const date = req.body.date;
-    const time = req.body.time;
+    const startTime = req.body.startTime;
+    const endTime = req.body.endTime;
     const description = req.body.description;
 
-    db.query("INSERT INTO schedule (gsname,date,time,description) VALUES (?,?,?,?)",
-    [gsname,date,time,description],(err,result)=>{
+    db.query("INSERT INTO appointment (gsname,date,startTime,endTime,description) VALUES (?,?,?,?,?)",
+    [gsname,date,startTime,endTime,description],(err,result)=>{
         if(err){
             console.log(err);
         } else{
@@ -398,9 +394,9 @@ app.post('/schedule',(req,res)=>{
         }
     })  
 });
-
+//userview
 app.get('/book',(req,res)=>{
-    db.query("SELECT gsname,date,time,description FROM schedule",(err,result,) => {
+    db.query("SELECT appointID,gsname,date,startTime,endTime,description FROM appointment",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -410,29 +406,9 @@ app.get('/book',(req,res)=>{
     });
 });
 
-app.post('/booking',(req,res)=>{
-    console.log(req.body)
-    const bookID = req.body.bookID;
-    const nic = req.body.nic;
-    const name = req.body.name; 
-    const home_no = req.body.home_no; 
-    const address = req.body.address; 
-    const phone = req.body.phone; 
-    const email = req.body.email; 
-    const des = req.body.des; 
-
-    db.query("INSERT INTO bookings (nic,name,home_no,address,phone,email,des) VALUES (?,?,?,?,?,?,?)",
-    [nic,name,home_no,address,phone,email,des],(err,result)=>{
-		if(err){
-            console.log(err);
-        } else{
-            res.send("values inserted");
-        }
-    })   
-});
-
+//addbooking
 app.get('/appview',(req,res)=>{
-    db.query("SELECT bookID,nic,name,home_no,address,phone,email,des FROM bookings",(err,result,) => {
+    db.query("SELECT appointID,nic,name,home_no,address,phone,email,des FROM appointment",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -440,6 +416,42 @@ app.get('/appview',(req,res)=>{
 	  }     
     });
 });
+
+app.get('/appdetails',(req,res)=>{
+    db.query("SELECT nic,name,home_no,address,phone,email,des FROM appointment",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  }     
+    });
+});
+
+app.put('/add-app-booking', (req,res) => {
+    const appointID = req.body.appointID;
+    const nic = req.body.nic;
+    const name = req.body.name;
+    const home_no = req.body.home_no;
+    const address = req.body.address;
+    const phone = req.body.phone;
+    const email = req.body.email; 
+    const des = req.body.des;
+    console.log("reach")
+    console.log(req.body)
+
+    db.query("UPDATE appointment SET nic=?,name=?,home_no=?,address=?, phone=?,email=?, des=? WHERE appointID = ?; ", 
+    [nic,name,home_no,address,phone,email,des, appointID], 
+    (err, result) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+       }
+    );
+  });
+
 
 app.get('/appschedule',(req,res)=>{
     db.query("SELECT bookID,nic,name,home_no,address,phone,email,des,status FROM bookings ",(err,result,) => {
@@ -484,7 +496,7 @@ app.post('/donor',(req,res)=>{
     })
     
 });
-
+//normal view
 app.get('/donationview',(req,res)=>{
     db.query("SELECT donorID,donorName,address,phone,email,date,amount FROM donation",(err,result,) => {
         if(err) {
@@ -496,6 +508,7 @@ app.get('/donationview',(req,res)=>{
     });
 });
 
+//edit view and put
 app.get("/donationdetails",(req,res)=>{
     donorID=req.params.donorID;
     db.query("SELECT donorName,address,phone,email,date,amount FROM donation WHERE donorID=?",[req.query.donorID],(err,result)=>{
@@ -505,15 +518,15 @@ app.get("/donationdetails",(req,res)=>{
         
 });
 
-app.put('/EditDonations', (req,res) => {
+app.put('/edit-donations', (req,res) => {
     const donorID = req.body.donorID;
     const donorName = req.body.donorName;
     const address = req.body.address;
     const phone = req.body.phone;
     const email = req.body.email;
     const amount = req.body.amount;
-
-    //console.log(req.body)
+    console.log("nuwan")
+    console.log(req.body)
 
     db.query("UPDATE donation SET donorName=?,address=?, phone=?,email=?,amount=? WHERE donorID = ?; ", 
     [donorName,address,phone,email,amount, donorID], 
@@ -561,8 +574,6 @@ app.get('/noticeview',(req,res)=>{
         
     });
 });
-
-
 
 app.listen(3001, () => {
 	console.log("running on port 3001");

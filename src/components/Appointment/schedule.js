@@ -8,7 +8,8 @@ function Schedule() {
     const [appID,setID] = useState("");
     const [gsname,setName] = useState("");
     const [date,setDate] = useState("");
-    const [time,setTime] = useState("");
+    const [startTime,setStartTime] = useState("");
+    const [endTime,setEndTime] = useState("");
     const [description,setDescription] = useState("");
 
     const schedule = ()=>{
@@ -16,7 +17,8 @@ function Schedule() {
        axios.post('http://localhost:3001/schedule',{
         gsname:gsname,
         date:date,
-        time:time,
+        startTime: startTime,
+        endTime:endTime,
         description:description,
 
         }).then(()=>{
@@ -104,7 +106,8 @@ function Schedule() {
 
             <input type="text"style={mystyle.forminput}name="gsname" onChange={(event)=>{setName(event.target.value);}} required placeholder="GS Name"/><br />
             <input type="date"style={mystyle.forminput}name="date " onChange={(event)=>{setDate(event.target.value);}} required placeholder="Date"/><br />
-            <input type="time"style={mystyle.forminput}name="time" onChange={(event)=>{setTime(event.target.value);}} required placeholder="Time"/><br />
+            <input type="time"style={mystyle.forminput}name="startTime" onChange={(event)=>{setStartTime(event.target.value);}} required placeholder="Start Time"/><br />
+            <input type="time"style={mystyle.forminput}name="endTime" onChange={(event)=>{setEndTime(event.target.value);}} required placeholder="End Time"/><br />
             <input type="text"style={mystyle.forminput}name="description" onChange={(event)=>{setDescription(event.target.value);}} required placeholder="Description"/><br />
             
           </div>

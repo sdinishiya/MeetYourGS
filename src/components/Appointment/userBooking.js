@@ -34,7 +34,7 @@ const mystyle = {
   }
 };
 
-export default function Booking1() {
+export default function UserBooking() {
   const [searchTerm,setSearchTerm]=useState("");
   const [bookList,setbookList]=useState([])
   // const classes = useStyles();
@@ -61,7 +61,7 @@ export default function Booking1() {
   return (
     <div ><br/>
                 <div className='box-main'>
-                <h1> Available Appointment Slots</h1>
+                <h1> Available Appointment Time Slots</h1>
                 </div><br/> 
 
                 {/* <Table  bordered hover responsive> */}
@@ -71,7 +71,7 @@ export default function Booking1() {
                     <tr>
                       <td align="center" scope="col"><b>GS Name</b></td>
                       <td align="center" scope="col"><b>Date</b></td>
-                      <td align="center" scope="col"><b>Time</b></td>
+                      <td align="center" scope="col"><b>Time Duration </b></td>
                       <td align="center" scope="col"><b>Description</b></td>
                       <td align="center" scope="col"><b></b></td>
                     </tr>
@@ -94,14 +94,13 @@ export default function Booking1() {
                        <tr>
                        <td align="center" scope="row" >{record.gsname}</td>
                        <td align="center">{year + month + day}</td>
-                       <td align="center">{record.time}</td>
+                       <td align="center">{record.startTime} - {record.endTime} </td>
                        <td align="center">{record.description}</td>
                        <td align="center">
-                       <Link to={'/Appointment/bookApp/' + record.appID}>
-                          <button id="bookbtn"style={mystyle.bookbtn}> Book </button>
+                        <Link to={location=> `/userBookingRoute/${record.appointID}`}>
+                          <button id="bookbtn" style={mystyle.bookbtn} > Book </button>
                         </Link>
-                       {/* <Link to='/Appointment/bookApp' onClick={()=>{updateMaterial(record.materialid)}}
-                            className="bookbtn ">Book</Link> */}
+                        
                         </td>
                       </tr>
                        )

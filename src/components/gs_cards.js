@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Cards.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import View1 from './Dashboard/view1';
+import Notice from './Dashboard/notice';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 
 const drawerWidth = 240;
 
@@ -53,6 +54,20 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Cards_gs() {
+  const [notices, setnotices] = useState([]);
+
+  useEffect(() => {
+   getdata();
+  }, [])
+
+
+  function getdata(){
+    axios.get("http://localhost:3001/noticeview").then((response)=>{
+      setnotices(response.data);
+      console.log(response.data);
+    })
+  }
+
   return (
     <div className='cards'>
       <h1> Hi GS! Welcome </h1>
@@ -65,37 +80,14 @@ function Cards_gs() {
           
         <Grid item xs={12} md={4} lg={6}>
               <paper> 
-                <View1 />
+                {notices.map(notice=>(<Notice topic={notice.topic} description={notice.description} />))}
+                {/* <Notice /> */}
 
               </paper>
 
-              <paper> 
-                
-              </paper>
 
             </Grid>
 
-          {/* <ul className='cards__items'>
-            
-            <CardItem
-              src='images/img-form.jpg'
-              text='Download official forms online!'
-              label='Forms'
-              path='/forms/form2'
-            />
-            <CardItem
-              src='images/img-cons.jpg'
-              text='View Past Projects, Current projects and Projects planned in the future  '
-              label='Projects'
-              path='/projects/grids/PresentProjects'
-            />
-            <CardItem
-              src='images/img-rec.png'
-              text='Resource and material Distribution details'
-              label='Resource'
-              path='/resourcematerial/card1'
-            />
-          </ul> */}
         </div>
       </div>
     </div>

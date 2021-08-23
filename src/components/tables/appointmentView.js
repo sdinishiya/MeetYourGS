@@ -128,7 +128,7 @@ export default function AppointmentView() {
                     }).map((record)=>{
                       return(
                        <tr>
-                       <td align="center" scope="row" >{record.bookID}</td>
+                       <td align="center" scope="row" >{record.appointID}</td>
                        <td align="center">{record.nic}</td>
                        <td align="center">{record.name}</td>
                        <td align="center">{record.home_no}</td>
