@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 
 function Add_Expense() {
@@ -8,9 +8,10 @@ function Add_Expense() {
     const [receiptno,setreceiptno] = useState("");
     const [description,setdescription] = useState("");
     const [expense,setexpense] = useState("");
+    const history  = useHistory();
 
-
-    const add_Expense = ()=>{
+    const add_Expense = (e)=>{
+      e.preventDefault();
       console.log(receiptno);
        axios.post('http://localhost:3001/expensecreate',{
         date:date,
@@ -20,6 +21,7 @@ function Add_Expense() {
 
         }).then(()=>{
            console.log("success");
+           history.push("/finance/viewFinance");
          });
     };
 
@@ -107,9 +109,9 @@ function Add_Expense() {
           
           <div display='flex' align='right'>
 
-            <Link to='/finance/viewFinance'>
+            
               <button type="submit" onClick={add_Expense} id="submitBtn"style={mystyle.submitBtn}> Add</button>
-            </Link>
+            
 
             <Link to='/finance/viewFinance'>
               <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>

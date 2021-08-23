@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 
 function Add_ProjectFund() {
@@ -10,8 +10,10 @@ function Add_ProjectFund() {
     const [debit,setdebit] = useState("");
     // const [expense,setexpense] = useState("");
     // const [materialList,setmaterialList] = useState([]);
+    const history  = useHistory();
 
-    const add_projectfund = ()=>{
+    const add_projectfund = (e)=>{
+      e.preventDefault();
       console.log(fundID);
        axios.post('http://localhost:3001/fundcreate',{
         date:date,
@@ -21,6 +23,7 @@ function Add_ProjectFund() {
 
         }).then(()=>{
            console.log("success");
+           history.push("/finance/projectfund");
          });
     };
   //   const getMaterials = () => {
@@ -113,9 +116,9 @@ function Add_ProjectFund() {
           
           <div display='flex' align='right'>
 
-            <Link to='/finance/projectfund'>
+            {/* <Link to='/finance/projectfund'> */}
               <button type="submit" onClick={add_projectfund} id="submitBtn"style={mystyle.submitBtn}> Add</button>
-            </Link>
+            {/* </Link> */}
 
             <Link to='/finance/projectfund'>
               <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>

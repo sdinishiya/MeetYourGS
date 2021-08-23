@@ -25,7 +25,7 @@ const mystyle = {
     width: '145px',
     height: '40px',
     fontSize: '18px',
-    backgroundColor: '#0A6466',
+    backgroundColor: '#048a0d',
     cursor: 'pointer',
     border: 'none',
     borderRadius: '5px',
@@ -102,14 +102,14 @@ export default function AgriResources() {
   return (
     <div ><br/>
                 <div className='box-main'>
-                <h1> Material Details</h1>
+                <h1> Agriculture Material Details</h1>
                   <Box justifyContent="flex-start" ml={15}>
                 <div className="searchbar">
                    <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
                    <SearchIcon  className='searchicon'/>
                 </div>
                 </Box>
-                <Box justifyContent="flex-end" ml={120}>
+                <Box justifyContent="flex-end" ml={140}>
                 <Link  to='/materials/AddMaterials1'> <button type="submit" onClick={AgriResources} id="submitBtn"style={mystyle.submitBtn}> Add Materials</button> </Link>
                 <Link to='/materials/SupplyMaterials1'> <button type="submit" onClick={AgriResources} id="submitBtn"style={mystyle.submitBtn}> Supply Material</button></Link>
                 </Box>
@@ -122,6 +122,7 @@ export default function AgriResources() {
                       <td align = "center" scope="col"><b>Added Date</b></td>
                       <td align = "center" scope="col"><b>Material ID</b></td>
                       <td align = "center" scope="col"><b>Material Name</b></td>
+                      <td align = "center" scope="col"><b>Description</b></td>
                       <td align = "center" scope="col"><b>Quantity</b></td>
                       <td align = "center"><b>Action</b></td>
                     </tr>
@@ -135,11 +136,16 @@ export default function AgriResources() {
                        return val
                      }
                     }).map((record)=>{
+                      const dt = new Date(record.addeddate);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
                       return(
                        <tr>
-                       <td align = "center" scope="row">{record.addeddate}</td>
+                       <td align="center" scope="row">{year + month + day}</td>
                        <td align = "center" > {record.materialid}</td>
                        <td align = "center"> {record.materialname}</td>
+                       <td align = "center"> {record.description}</td>
                        <td align = "center"> {record.quantity}</td>
                        <td align = "center">
                          

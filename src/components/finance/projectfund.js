@@ -71,6 +71,18 @@ export default function Fund() {
   },[])
 
   const [modal, setModal] = useState(false);
+
+  const getTotal = () => {
+    let total = 0;
+    transectionList.forEach(tr => {
+      if (tr.debit > 0) {
+        total += tr.debit;
+      } else {
+        total -= tr.credit;
+      }
+    })
+    return total;
+  }
  
   const toggleModal = () => {
     setModal(!modal);
@@ -85,16 +97,21 @@ export default function Fund() {
   return (
     <div ><br/>
                 <div className='box-main'>
-                <h1> Project Fund Details</h1>
+                <h1> Project Fund Account</h1>
                   {/* <Box justifyContent="flex-start" ml={15}>
                 <div className="searchbar">
                    <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
                    <SearchIcon  className='searchicon'/>
                 </div>
                 </Box> */}
-                <Box justifyContent="flex-end" ml={120}>
-                <Link  to='/finance/Addprojectfund'> <button type="submit" onClick={Fund} id="submitBtn"style={mystyle.submitBtn}> Add Fund</button> </Link>
+                <Box justifyContent="flex-end" ml={140}>
+                <Link  to='/finance/Addprojectfund'> <button type="submit" onClick={Fund} id="submitBtn"style={mystyle.submitBtn}> Fund Received</button> </Link>
                 <Link to='/finance/AllocateProjectfund'> <button type="submit" onClick={Fund} id="submitBtn"style={mystyle.submitBtn}> Fund Allocation </button></Link>
+                <tr> 
+                 <td></td>
+                 <td></td>
+                 <td><b>Cash in Hand: {getTotal()}</b></td>
+                </tr>
                 </Box>
                
                 </div><br/> 
@@ -118,9 +135,13 @@ export default function Fund() {
                        return val
                      }
                     }).map((record)=>{
+                      const dt = new Date(record.date);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
                       return(
                        <tr>
-                       <td  align = "center" scope="row">{record.date}</td>
+                       <td align="center" scope="row">{year + month + day}</td>
                        <td align = "center" > {record.fundID}</td>
                        <td align = "center" > {record.description}</td>
                        <td align = "center"> {record.debit}</td>

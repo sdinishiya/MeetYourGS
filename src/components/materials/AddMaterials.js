@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 
 function Add_Materials() {
@@ -7,11 +7,14 @@ function Add_Materials() {
     const [addeddate,setaddeddate] = useState("");
     const [materialid,setmaterialid] = useState("");
     const [materialname,setmaterialname] = useState("");
+    const [description,setdescription] = useState("");
     const [quantity,setquantity] = useState("");
-
+    
+    const history = useHistory();
     // const [materialList,setmaterialList] = useState([]);
 
-    const add_Materials = ()=>{
+    const add_Materials = (e)=>{
+      e.preventDefault();
       console.log(materialid);
        axios.post('http://localhost:3001/create',{
         addeddate:addeddate,
@@ -21,6 +24,7 @@ function Add_Materials() {
 
         }).then(()=>{
            console.log("success");
+           history.push("/resourcematerial/const.materials");
          });
     };
   //   const getMaterials = () => {
@@ -74,7 +78,7 @@ function Add_Materials() {
       width: '145px',
       height: '40px',
       fontSize: '18px',
-      backgroundColor: '#0A6466',
+      backgroundColor: '#048a0d',
       cursor: 'pointer',
       border: 'none',
       borderRadius: '5px',
@@ -101,22 +105,23 @@ function Add_Materials() {
   return (
     <div align='center'>
       <div style={mystyle.formbox}>
-        <h1 style={mystyle.formhead}> Add New Material </h1>
+        <h1 style={mystyle.formhead}> Add Construction Material </h1>
         <form >
           <div >
 
             <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setaddeddate(event.target.value);}} required placeholder="Deadline"/><br />
             {/* <input type="text"style={mystyle.forminput}name="Material ID" onChange={(event)=>{setmaterialid(event.target.value);}} required placeholder="Material ID...."/><br /> */}
             <input type="text"style={mystyle.forminput}name="Material Name" onChange={(event)=>{setmaterialname(event.target.value);}} required placeholder="Material Name...."/><br />
+            <input type="text"style={mystyle.forminput}name="Description" onChange={(event)=>{setdescription(event.target.value);}} required placeholder="Description...."/><br />
             <input type="text"style={mystyle.forminput}name="Quantity" onChange={(event)=>{setquantity(event.target.value);}} required placeholder="Enter Quantity...."/><br />
 
           </div>
 
           <div display='flex' align='right'>
 
-            <Link to='/resourcematerial/const.materials'>
+            {/* <Link to='/resourcematerial/const.materials'> */}
               <button type="submit" onClick={add_Materials} id="submitBtn"style={mystyle.submitBtn}> Add</button>
-            </Link>
+            {/* </Link> */}
 
             <Link to='/resourcematerial/const.materials'>
               <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>

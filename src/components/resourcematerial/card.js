@@ -5,7 +5,7 @@ import CardItem from '../CardItem';
 function Card() {
   return (
     <div className='cards'>
-      <h1> Available Material Details </h1>
+      <h1> Manage Stock Details </h1>
 
       <div className='cards__container'>
         <div className='cards__wrapper'>
@@ -13,19 +13,19 @@ function Card() {
             <CardItem
               src='../images/img-const.jpg'
               text='Construction Materials'
-              label='Resource'
+              label='Construction'
               path='/resourcematerial/const.materials'
             />
             <CardItem
-              src='../images/img-Agri.jpg'
+              src='../images/agrimaterials.webp'
               text='Agriculture Materials'
-              label='Resource'
+              label='Agriculture'
               path='/resourcematerial/agri.materials'
             />
             <CardItem
               src='../images/img-others.jpg'
               text='Other Materials'
-              label='Resource'
+              label='Dry Rations'
               path='/resourcematerial/othermaterials'
             />
           </ul>
