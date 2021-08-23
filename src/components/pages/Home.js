@@ -9,13 +9,13 @@ import Footer from '../Footer';
 
 function Home() {
   return (
-    <>
+    <React.Fragment>
       <Navbar />
       <HeroSection />
       {/* <Cards1 /> */}
       <Cards />
       <Footer />
-    </>
+    </React.Fragment>
   );
 }
 

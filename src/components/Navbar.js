@@ -25,7 +25,7 @@ function Navbar() {
   window.addEventListener('resize', showButton);
 
   return (
-    <>
+    <React.Fragment>
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
@@ -78,11 +78,10 @@ function Navbar() {
               </Link>
             </li> */}
             {/* {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>} */}
-          </ul>
-          
+          </ul>  
         </div>
       </nav>
-    </>
+    </React.Fragment>
   );
 }
 

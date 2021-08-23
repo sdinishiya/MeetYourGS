@@ -10,6 +10,7 @@ import ForumView from './components/Forum/public_viewforum';
 import ProjectReviewCard from './components/projects/cards/PresentProjects';
 import CenteredGrid from './components/projects/grids/PresentProjects'; 
 import Dashboard from './components/Dashboard/Dashboard'; 
+import Addnotice from './components/Dashboard/addnotice';
 import Donate2 from './components/Donations/donate2'; 
 import removeVillager from './components/villagers/remove_villager';
 import RegisterVillager from './components/villagers/register_villagers';
@@ -58,6 +59,7 @@ import thank from './components/Appointment/thankyou';
 import Donationdash from './components/Donors/donationdash';
 import DonationView from './components/Donors/donations';
 import AddDonation from './components/Donors/add_donation';
+import EditDonationsRoute from './components/Donors/editDonationsRoute';
 
 
 function App() {
@@ -89,6 +91,7 @@ function App() {
           <Route exact path="/materials/SupplyMaterials2" component = {Supply_Materials2} />
  
           <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
+          <Route exact path="/Dashboard/addnotice" component = {Addnotice} />
           <Route exact path="/Donations/donate2" component = {Donate2} />
           <Route exact path="/finance/Addfund" component = {Add_Fund} />
           <Route exact path="/finance/AddExpense" component = {Add_Expense} />
@@ -114,13 +117,14 @@ function App() {
           
           <Route path='/Appointment/appointments' component={Appoint} />
           <Route path='/Appointment/schedule' component={schedule} />
-          <Route path='/Appointment/bookApp' component={Booking} />
+          <Route path='/Appointment/bookApp/:id' component={Booking} />
           <Route path='/Appointment/bookApp1' component={Booking1} />
           <Route path='/Appointment/thankyou' component={thank} />
 
           <Route path='/Donors/donationdash' component={Donationdash} />
           <Route path='/Donors/donations' component={DonationView} />
           <Route path='/Donors/add_donation' component={AddDonation} />
+          <Route path='/editDonationsRoute' component={EditDonationsRoute} />
 
 
         </Switch>

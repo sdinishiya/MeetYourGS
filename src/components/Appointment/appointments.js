@@ -4,7 +4,6 @@ import Appcards from './app_cards';
 import GSFooter from '../GSFooter';
 import GSNavbar from '../gs_navbar';
 
-
 function Appoint() {
   return (
     <div>

@@ -17,10 +17,9 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SearchIcon from '@material-ui/icons/Search';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-// import { Search as SearchIcon } from 'react-feather';
 
 const mystyle = {
-  acceptbtn: {
+    pageBtn: {
       marginTop: '10px',
       width: '125px',
       height: '30px',
@@ -31,36 +30,19 @@ const mystyle = {
       borderRadius: '5px',
       color: 'white',
       marginRight: '30px'
-  },
-  declinebtn: {
-    marginTop: '10px',
-    width: '125px',
-    height: '30px',
-    fontSize: '14px',
-    backgroundColor: '#e02424',
-    cursor: 'pointer',
-    border: 'none',
-    borderRadius: '5px',
-    color: 'white',
-    marginRight: '30px'
 }
 };
 
-export default function AppointmentView() {
+export default function AppointmentSchedule() {
   const [searchTerm,setSearchTerm]=useState("");
   const [viewList,setviewList]=useState([])
   // const classes = useStyles();
 
-
   useEffect(()=>{
-    axios.get("http://localhost:3001/appview").then((response)=>{
+    axios.get("http://localhost:3001/appconfirm").then((response)=>{
         setviewList(response.data)
     })
   },[])
-
-  const declineapp =(bookID)=>{
-    axios.delete(`http://localhost:3001/decline/${bookID}`);
-  }
 
   // const [newName,setNewName]=useState("");
   // const updateMaterial =(materialid)=>{
@@ -86,18 +68,11 @@ export default function AppointmentView() {
   return (
     <div ><br/>
                 <div className='box-main'>
-                <h1> Appointment Request Details</h1>
-                  {/* <Box justifyContent="flex-start" ml={5}>
-                  <div className="searchbar">
-                   <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
-                   <SearchIcon  className='searchicon'/>
-                </div>
-                  </Box> */}
-                {/* <Box justifyContent="flex-end" ml={120}>
-                <Link  to='/materials/AddMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add Materials</button> </Link>
-                <Link to='/materials/SupplyMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Supply Material</button></Link>
-                </Box> */}
-                {/* <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add</button> */}
+                <h1> Scheduled Appointment Details</h1>
+                
+                <Box justifyContent="flex-end" ml={120}>
+                <Link  to='/Appointment/schedule'> <button  id="pageBtn"style={mystyle.submitBtn}> Schedule Appointments </button> </Link>
+                </Box>
                 </div><br/> 
 
                 {/* <Table  bordered hover responsive> */}
@@ -108,13 +83,11 @@ export default function AppointmentView() {
                       <td align="center" scope="col"><b>Appointment ID</b></td>
                       <td align="center" scope="col"><b>Villager NIC</b></td>
                       <td align="center" scope="col"><b>Villager Name</b></td>
-                      <td align="center" scope="col"><b>Home No.</b></td>
-                      <td align="center" scope="col"><b>Address</b></td>
                       <td align="center" scope="col"><b>Phone</b></td>
                       <td align="center" scope="col"><b>Email</b></td>
                       <td align="center" scope="col"><b>Description</b></td>
-                      <td align="center" scope="col"><b></b></td>
-                      <td align="center" scope="col"><b></b></td>
+                      <td align="center" scope="col"><b>Status</b></td>
+
                     </tr>
                   </thead>
                  <tbody className="tablebody">
@@ -131,21 +104,10 @@ export default function AppointmentView() {
                        <td align="center" scope="row" >{record.bookID}</td>
                        <td align="center">{record.nic}</td>
                        <td align="center">{record.name}</td>
-                       <td align="center">{record.home_no}</td>
-                       <td align="center">{record.address}</td>
                        <td align="center">{record.phone}</td>
                        <td align="center">{record.email}</td>
                        <td align="center">{record.des}</td>
-                       <td align="center">
-                       <Link to='/tables/appointmentView'>
-                          <button id="acceptbtn"style={mystyle.acceptbtn}> Accept </button>
-                        </Link>
-                        </td>
-                        <td align="center">
-                       <Link to='/tables/appointmentView'>
-                          <button id="declinebtn"style={mystyle.declinebtn}> Decline </button>
-                        </Link>
-                        </td>
+                       <td align="center">{record.status}</td>
                       </tr>
                        )
                      })}   
@@ -154,6 +116,5 @@ export default function AppointmentView() {
                 </Table>
               </TableContainer>
               </div>
-           
-  )
-}
+            )
+        } 
