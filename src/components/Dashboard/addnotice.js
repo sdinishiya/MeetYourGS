@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import GSFooter from '../GSFooter';
-import GSNavbar from '../gs_navbar';
 
-function Schedule() {
-    const [appID,setID] = useState("");
-    const [gsname,setName] = useState("");
-    const [date,setDate] = useState("");
-    const [time,setTime] = useState("");
+function Addnotice() {
+    const [noticeID,setNoticeID] = useState("");
+    const [topic,setTopic] = useState("");
     const [description,setDescription] = useState("");
+    const [uploadDate,setUploadDate] = useState(""); 
+    const [expDate,setExpDate] = useState("");
+    const [active_status,setActive_status] = useState("");
 
-    const schedule = ()=>{
-      console.log(appID);
-       axios.post('http://localhost:3001/schedule',{
-        gsname:gsname,
-        date:date,
-        time:time,
-        description:description,
+    const notice = ()=>{
+      console.log(noticeID);
+       axios.post('http://localhost:3001/addnotice',{
+        topic: topic,
+        description: description,
+        uploadDate: uploadDate,
+        expDate: expDate,
+        active_status: active_status,
 
         }).then(()=>{
            console.log("success");
@@ -33,7 +33,7 @@ function Schedule() {
 
     formbox: {
       backgroundColor: 'white',
-      width: '60%',
+      width: '50%',
       textalign: 'center',
       marginTop: '10px',
       height: 'full',
@@ -50,8 +50,7 @@ function Schedule() {
       left: '90vh',
     },
     forminput: {
-
-      width: '70%',
+      width: '60%',
       padding: '10px 10px',
       margin: '8px 0',
       display: 'inline - block',
@@ -89,48 +88,42 @@ function Schedule() {
       marginRight: '150px'
     }
 
-
   };
 
   return (
-    <div>
-       <GSNavbar />
+    
     <div align='center'>
       <br/><br/>
       <div style={mystyle.formbox}>
-        <h1 style={mystyle.formhead}> SCHEDULE APPOINTMENTS </h1>
+        <h1 style={mystyle.formhead}> ADD GENERAL NOTICE DETAILS </h1>
         <form >
           <div >
 
-            <input type="text"style={mystyle.forminput}name="gsname" onChange={(event)=>{setName(event.target.value);}} required placeholder="GS Name"/><br />
-            <input type="date"style={mystyle.forminput}name="date " onChange={(event)=>{setDate(event.target.value);}} required placeholder="Date"/><br />
-            <input type="time"style={mystyle.forminput}name="time" onChange={(event)=>{setTime(event.target.value);}} required placeholder="Time"/><br />
-            <input type="text"style={mystyle.forminput}name="description" onChange={(event)=>{setDescription(event.target.value);}} required placeholder="Description"/><br />
+            <input type="text"style={mystyle.forminput}name="topic " onChange={(event)=>{setTopic(event.target.value);}} required placeholder="Notice Topic *"/><br />
+            <input type="text"style={mystyle.forminput}name="description" onChange={(event)=>{setDescription(event.target.value);}} required placeholder="Description*"/><br />
+            <input type="date"style={mystyle.forminput}name="uploadDate" onChange={(event)=>{setUploadDate(event.target.value);}} required placeholder=" Date Uploaded*"/><br />
+            <input type="date"style={mystyle.forminput}name="expDate" onChange={(event)=>{setExpDate(event.target.value);}} required placeholder="Expiry Date*"/><br />
+            <input type="int"style={mystyle.forminput}name="active_status" onChange={(event)=>{setActive_status(event.target.value);}} required placeholder="status"/><br />
             
           </div>
 
           <div display='flex' align='right'>
 
-            <Link to='/Appointment/appointments'>
-              <button type="submit" onClick={schedule} id="submitBtn"style={mystyle.submitBtn}> Add Slot</button>
+            <Link to='#'>
+              <button type="submit" onClick={notice} id="submitBtn"style={mystyle.submitBtn}> Add</button>
             </Link>
 
-            <Link to='/Appointment/schedule'>
+            <Link to='#'>
               <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
             </Link>
           </div>
           <br/> <br/>
 
         </form>
-
       </div>
     </div>
-    <br /> 
-    {/* <GSFooter /> */}
-  </div>
-
 
   )
 }
 
-export default Schedule;
+export default Addnotice;

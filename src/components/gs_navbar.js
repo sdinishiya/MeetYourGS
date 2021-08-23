@@ -25,7 +25,7 @@ function GSNavbar() {
   window.addEventListener('resize', showButton);
 
   return (
-    <>
+    <div>
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
@@ -82,7 +82,7 @@ function GSNavbar() {
           {/* {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>} */}
         </div>
       </nav>
-    </>
+    </div>
   );
 }
 

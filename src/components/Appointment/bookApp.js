@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
 
 function Booking() {
@@ -11,20 +11,28 @@ function Booking() {
     const [phone,setPhone] = useState("");
     const [email,setEmail] = useState("");
     const [des,setDes] = useState("");
+    // const params = useParams();
 
-    const booking = ()=>{
-      console.log(bookID);
-       axios.post('http://localhost:3001/booking',{
-        nic:nic,
-        name:name,
-        home_no:home_no,
-        address:address,
-        phone:phone,
-        email:email,
-        des:des,
+    const history  = useHistory();
+
+    const booking = (e)=>{
+      e.preventDefault();
+      // alert(params.id)
+
+    console.log(bookID);
+      axios.post('http://localhost:3001/booking',{
+      nic:nic,
+      name:name,
+      home_no:home_no,
+      address:address,
+      phone:phone,
+      email:email,
+      des:des,
+      // appId: params.id
 
         }).then(()=>{
            console.log("success");
+          history.push("/Appointment/thankyou");
          });
     };
 

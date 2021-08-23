@@ -18,16 +18,11 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import View from './view';
-import View1 from './view1';
-import View2 from './view2';
-import View3 from './view3';
-import View4 from './view4';
-import View5 from './view5';
-import View6 from './view6';
-import View7 from './view7';
-import View8 from './view8';
+import { mainListItems, secondaryListItems } from '../Dashboard/listItems';
+import '../../App.css';
+import Appcards from './app_cards';
+import GSFooter from '../GSFooter';
+import GSNavbar from '../gs_navbar';
 
 
 const drawerWidth = 240;
@@ -80,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+
   drawerPaperClose: {
     overflowX: 'hidden',
     transition: theme.transitions.create('width', {
@@ -91,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9),
     },
   },
+  
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
@@ -117,7 +114,8 @@ const styles = {
       backgroundColor:'rgb(21,21,21)',
     }
   };
-export default function Dashboard() {
+ 
+export default function Appoint() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -173,60 +171,9 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-           
-           <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View1 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View2 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View3 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View4 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View5 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View6 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View7 />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <View8 />
-              </Paper>
-            </Grid>
+          <div> 
+          <Appcards />
+           </div>
            
           </Grid>
           <Box pt={4}>

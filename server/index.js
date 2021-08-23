@@ -2,6 +2,13 @@ const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const bcrypt = require('bcrypt');
+
+// const { response } = require('express');
+// const path = require('path');
+// const { name } = require('ejs');
+const bodyParser =  require('body-parser')
+// const ejs = require ('ejs');
+// const socketio = require('socket.io')
 // const { response } = require('express');
 // const app = express();
 // const path = require('path');
@@ -10,6 +17,8 @@ const bcrypt = require('bcrypt');
 // app.use(express.json());
 // app.use(cors());
 const saltRounds = 10;
+
+
 
 
 const app = express();
@@ -22,7 +31,7 @@ const db = mysql.createConnection({
 	user: "root",
 	host: "localhost",
 	password: "",
-	database: "meetyourgs",
+	database: "meetyour_gs",
 });
 
 db.connect((err)=>{
@@ -372,6 +381,7 @@ app.post('/fundallocatecreate',(req,res)=>{
     
 });
 
+//appointment
 app.post('/schedule',(req,res)=>{
     console.log(req.body)
     const gsname = req.body.gsname;
@@ -386,9 +396,7 @@ app.post('/schedule',(req,res)=>{
         } else{
             res.send("values inserted");
         }
-    
-    })
-    
+    })  
 });
 
 app.get('/book',(req,res)=>{
@@ -402,9 +410,9 @@ app.get('/book',(req,res)=>{
     });
 });
 
-
 app.post('/booking',(req,res)=>{
     console.log(req.body)
+    const bookID = req.body.bookID;
     const nic = req.body.nic;
     const name = req.body.name; 
     const home_no = req.body.home_no; 
@@ -420,9 +428,7 @@ app.post('/booking',(req,res)=>{
         } else{
             res.send("values inserted");
         }
-    
-    })
-    
+    })   
 });
 
 app.get('/appview',(req,res)=>{
@@ -431,8 +437,17 @@ app.get('/appview',(req,res)=>{
 		console.log(err)
 	  } else {
         res.send(result)
-	  } 
-        
+	  }     
+    });
+});
+
+app.get('/appschedule',(req,res)=>{
+    db.query("SELECT bookID,nic,name,home_no,address,phone,email,des,status FROM bookings ",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  }     
     });
 });
 
@@ -442,11 +457,13 @@ app.get('/appconfirm',(req,res)=>{
 		console.log(err)
 	  } else {
         res.send(result)
-	  } 
-        
+	  }    
     });
 });
 
+
+
+//donations
 app.post('/donor',(req,res)=>{
     console.log(req.body)
     const donorName = req.body.donorName;
@@ -456,7 +473,7 @@ app.post('/donor',(req,res)=>{
 	const date = req.body.date;
     const amount = req.body.amount;
 
-    db.query("INSERT INTO donors (donorName,address,phone,email,date,amount) VALUES (?,?,?,?,?,?)",
+    db.query("INSERT INTO donation (donorName,address,phone,email,date,amount) VALUES (?,?,?,?,?,?)",
     [donorName,address,phone,email,date,amount],(err,result)=>{
         if(err){
             console.log(err);
@@ -469,7 +486,73 @@ app.post('/donor',(req,res)=>{
 });
 
 app.get('/donationview',(req,res)=>{
-    db.query("SELECT donorID,donorName,address,phone,email,date,amount FROM donors",(err,result,) => {
+    db.query("SELECT donorID,donorName,address,phone,email,date,amount FROM donation",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
+app.get("/donationdetails",(req,res)=>{
+    donorID=req.params.donorID;
+    db.query("SELECT donorName,address,phone,email,date,amount FROM donation WHERE donorID=?",[req.query.donorID],(err,result)=>{
+        console.log(req.query.donorID);
+        res.send(result);
+    });
+        
+});
+
+app.put('/EditDonations', (req,res) => {
+    const donorID = req.body.donorID;
+    const donorName = req.body.donorName;
+    const address = req.body.address;
+    const phone = req.body.phone;
+    const email = req.body.email;
+    const amount = req.body.amount;
+
+    //console.log(req.body)
+
+    db.query("UPDATE donation SET donorName=?,address=?, phone=?,email=?,amount=? WHERE donorID = ?; ", 
+    [donorName,address,phone,email,amount, donorID], 
+    (err, result) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+       }
+    );
+  });
+
+
+//notice
+app.post('/addnotice',(req,res)=>{
+    console.log(req.body)
+    const noticeID = req.body.noticeID;
+    const topic = req.body.topic;
+    const description = req.body.description; 
+    const uploadDate = req.body.uploadDate;
+    const expDate = req.body.expDate; 
+    const active_status = req.body.active_status;  
+
+    db.query("INSERT INTO notice (topic,description,uploadDate,expDate,active_status) VALUES (?,?,?,?,?)",
+    [topic,description,uploadDate,expDate,active_status],(err,result)=>{
+		if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+    
+});
+
+app.get('/noticeview',(req,res)=>{
+    db.query("SELECT topic,description,uploadDate,expDate,active_status FROM notice",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {

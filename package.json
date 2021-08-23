@@ -12,10 +12,13 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@vonage/server-sdk": "^2.10.10",
     "axios": "^0.21.1",
     "babel": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "bootstrap": "^5.0.2",
     "emailjs-com": "^3.2.0",
+    "eslint-plugin-react": "^7.4.0",
     "framer-motion": "^4.1.17",
     "karma": "^6.3.4",
     "node-sass": "^6.0.1",
@@ -55,5 +58,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
+    "babel-eslint": "^7.2.3"
   }
 }

@@ -85,14 +85,19 @@ export default function Booking1() {
                        return val
                      }
                     }).map((record)=>{
+                      const dt = new Date(record.date);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
+
                       return(
                        <tr>
                        <td align="center" scope="row" >{record.gsname}</td>
-                       <td align="center">{record.date}</td>
+                       <td align="center">{year + month + day}</td>
                        <td align="center">{record.time}</td>
                        <td align="center">{record.description}</td>
                        <td align="center">
-                       <Link to='/Appointment/bookApp'>
+                       <Link to={'/Appointment/bookApp/' + record.appID}>
                           <button id="bookbtn"style={mystyle.bookbtn}> Book </button>
                         </Link>
                        {/* <Link to='/Appointment/bookApp' onClick={()=>{updateMaterial(record.materialid)}}

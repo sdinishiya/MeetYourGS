@@ -61,15 +61,6 @@ export default function DonationView() {
     axios.delete(`http://localhost:3001/decline/${donorID}`);
   }
 
-  // const [newName,setNewName]=useState("");
-  // const updateMaterial =(materialid)=>{
-  //   axios.put("http://localhost:3001/update",{
-  //     id:materialid,
-  //     name:newName,
-  //   });
-  //   setNewName("")
-  // };
-
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -134,10 +125,13 @@ export default function DonationView() {
                        <td align="center">{record.date}</td>
                        <td align="center">{record.amount}</td>
                        <td align="center">
-                       <Link to='/Donors/donations'>
-                          <button id="editbtn"style={mystyle.editbtn}> Edit </button>
+
+                       <Link to={location=> `/editDonationsRoute/${record.donorID}`}>
+                          <button id="editbtn" style={mystyle.editbtn} > Edit </button>
                         </Link>
+                        {/* <Link style={styles.editbtn} to={location=> `/editDonationsRoute/ ${record.donorID}`} > Edit </Link> */}
                         </td>
+                        
                         <td align="center">
                        <Link to='/Donors/donations'>
                           <button id="deletebtn"style={mystyle.deletebtn}> Delete </button>
