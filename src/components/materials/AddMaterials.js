@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 
 function Add_Materials() {
 
+  // let materialname = localStorage.getItem('materialname');
+  // materialid = JSON.parse(materialid)
+    const [getmaterial,setgetmaterial] = useState ([])
     const [addeddate,setaddeddate] = useState("");
     const [materialid,setmaterialid] = useState("");
     const [materialname,setmaterialname] = useState("");
@@ -18,8 +24,9 @@ function Add_Materials() {
       console.log(materialid);
        axios.post('http://localhost:3001/create',{
         addeddate:addeddate,
-        // materialid:materialid,
+        materialid:materialid,
         materialname:materialname,
+        description:description,
         quantity:quantity,
 
         }).then(()=>{
@@ -33,7 +40,19 @@ function Add_Materials() {
   //     setmaterialList(response.data)
   //   });
   // };
-
+  useEffect(() => {
+    const fetchData = async () => {
+        const response = await axios.get('http://localhost:3001/materialname', {
+            // params: {
+            //     materialname:materialname,
+            // }
+        });
+        setgetmaterial(response.data);
+        console.log(response.data);
+    };
+    fetchData();
+}, []);
+console.log(getmaterial);
   const mystyle = {
     formstep: {
       fontsize: '35px',
@@ -97,7 +116,20 @@ function Add_Materials() {
       borderRadius: '5px',
       color: 'white',
       marginRight: '150px'
-    }
+    },
+
+    search: {
+      width: '620px',
+      padding: '10px 10px',
+      margin: '6px 0',
+      border: '1px solid #C0C0C0',
+      borderRadius: '5px',
+    },
+
+    formControl: {
+      // margin: theme.spacing(1),
+      minWidth: '320px',
+    },
 
 
   };
@@ -108,10 +140,23 @@ function Add_Materials() {
         <h1 style={mystyle.formhead}> Add Construction Material </h1>
         <form >
           <div >
-
-            <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setaddeddate(event.target.value);}} required placeholder="Deadline"/><br />
-            {/* <input type="text"style={mystyle.forminput}name="Material ID" onChange={(event)=>{setmaterialid(event.target.value);}} required placeholder="Material ID...."/><br /> */}
-            <input type="text"style={mystyle.forminput}name="Material Name" onChange={(event)=>{setmaterialname(event.target.value);}} required placeholder="Material Name...."/><br />
+          <input type="date"style={mystyle.forminput}name="deadline" onChange={(event)=>{setaddeddate(event.target.value);}} required placeholder="Deadline"/><br />
+          <FormControl style={mystyle.formControl} >
+            <InputLabel ml={12}>Material Name</InputLabel>
+                            <Select
+                                native
+                                onChange={(event) => { setmaterialid(event.target.value); }}
+                                style={mystyle.search} >
+                                               
+                                <option aria-label="None" value="" />
+                                {getmaterial.map((record) => (
+                                    <option Value={record.materialid}>{record.materialname}</option>
+                                ))}
+                            </Select>
+          </FormControl><br />
+           
+            {/* <input type="text"style={mystyle.forminput}name="Material ID" onChange={(event)=>{setmaterialid(event.target.value);}} required placeholder="Material ID...."/><br />
+            <input type="text"style={mystyle.forminput}name="Material Name" onChange={(event)=>{setmaterialname(event.target.value);}} required placeholder="Material Name...."/><br />  */}
             <input type="text"style={mystyle.forminput}name="Description" onChange={(event)=>{setdescription(event.target.value);}} required placeholder="Description...."/><br />
             <input type="text"style={mystyle.forminput}name="Quantity" onChange={(event)=>{setquantity(event.target.value);}} required placeholder="Enter Quantity...."/><br />
 

@@ -97,8 +97,13 @@ app.post('/create',(req,res)=>{
     const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO constsmaterial (addeddate,materialid,materialname,description,quantity) VALUES (?,?,?,?)",
-    [addeddate,materialid,materialname,description,quantity],(err,result)=>{
+    // let materialname = db.query("SELECT n.materialname FROM newconstmaterial n INNER JOIN constsmaterial c ON n.materialid = c.materialid")
+    // SELECT n.materialname AS materialname FROM newconstmaterial n INNER JOIN constsmaterial c ON n.materialid = c.materialid
+    //SELECT newconstmaterial.materialname  FROM newconstmaterial where newconstmaterial.materialid = constsmaterial.materialid
+    // SELECT matname FROM newconstmaterial INNER JOIN constsmaterial  ON matid = materialid
+
+    db.query("INSERT INTO constsmaterial (addeddate,materialid,materialname,description,quantity) VALUES (?,?,?,?,?)",
+    [addeddate,materialid,materialname,description,quantity],(err,result)=>{ 
         if(err){
             console.log(err);
         } else{
@@ -110,7 +115,7 @@ app.post('/create',(req,res)=>{
 });
 
 app.get('/materials',(req,res)=>{
-    db.query("SELECT * FROM constsmaterial order by materialid ASC",(err,result,) => {
+    db.query("SELECT * FROM constsmaterial order by date ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -119,6 +124,14 @@ app.get('/materials',(req,res)=>{
         
     });
 });
+
+app.get('/materialname', (req, res) => {
+    db.query('SELECT materialid,materialname FROM newconstmaterial ', (err, result) => {
+        res.send(result);
+        console.log(result);
+
+    })
+})
 
 
 app.delete("/delete/:id",(req,res)=>{
