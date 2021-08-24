@@ -38,7 +38,7 @@ function Cards() {
               src='images/img-book.jpg'
               text='Schedule appoitnments according to your convenience with your GS'
               label='Appointments'
-              path='/Appointment/bookApp1'
+              path='/Appointment/userBooking'
             />
             <CardItem
               src='images/img-donate.jpg'

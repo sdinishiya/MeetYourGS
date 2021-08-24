@@ -3,62 +3,69 @@ import { Link } from "react-router-dom";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 
-function UpdateDonation() {
-  const { donorID } = useParams();
-  const [newdonorName, setNewdonorName] = useState("");
+function AddBooking() {
+  const { appointID } = useParams();
+  const [newnic, setNewNic] = useState("");
+  const [newname, setNewName] = useState("");
+  const [newhome_no, setNewHome_no] = useState("");
   const [newaddress, setNewAddress] = useState("");
   const [newphone, setNewPhone] = useState("");
   const [newemail, setNewEmail] = useState("");
-  const [newamount, setNewAmount] = useState("");
+  const [newdes, setNewDes] = useState("");
 
   let history = useHistory();
 
   const [Dt, setDt] = useState([]);
-  const [DonationLiSt, setDonationList] = useState([]);
+  const [BookingList, setBookingList] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:3001/donationview").then((response) => {
-      setDonationList(response.data);
+    axios.get("http://localhost:3001/appview").then((response) => {
+      setBookingList(response.data);
     });
   }, []);
 
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:3001/donationdetails", {
+    const response = await axios.get("http://localhost:3001/appdetails", {
       params: {
-        donorID: donorID,
+        appointID: appointID,
       },
     });
 
     setDt(response.data[0]);
-    setNewdonorName(response.data[0].donorName);
+    setNewNic(response.data[0].nic);
+    setNewName(response.data[0].name);
+    setNewHome_no(response.data[0].home_no);
     setNewAddress(response.data[0].address);
     setNewPhone(response.data[0].phone);
     setNewEmail(response.data[0].email);
-    setNewAmount(response.data[0].amount);
+    setNewDes(response.data[0].des);
 
     console.log(response.data[0]);
   };
 
   useEffect(() => {
     fetchData();
-  }, [donorID]);
+  }, [appointID]);
 
-  const EditDon = (donorID) => {
+  const AddBook = (appointID) => {
     console.log("reach");
-    console.log(donorID);
+    console.log(appointID);
     axios
-      .put("http://localhost:3001/edit-donations", {
-        donorName: newdonorName,
+      .put("http://localhost:3001/add-app-booking", {
+        nic: newnic,
+        name: newname,
+        home_no: newhome_no,
         address: newaddress,
         phone: newphone,
         email: newemail,
-        amount: newamount,
-        donorID: donorID,
+        des: newdes,
+        appointID: appointID,
       })
       .then((response) => {
         console.log(Dt);
       });
-    alert(" Details Updated successfully ");
-    history.push("/Donors/donations");
+    alert(" Appointment Booked successfully ");
+    history.push("/Appointment/thankyou");
   };
 
   const mystyle = {
@@ -131,22 +138,43 @@ function UpdateDonation() {
       <br />
       <br />
       <div style={mystyle.formbox}>
-        <h1 style={mystyle.formhead}> EDIT DONATION DETAILS </h1>
+        <h1 style={mystyle.formhead}> MAKE APPOINTMENT BOOKINGS </h1>
         <form>
           <div>
-            {/* defaultValue={newName}  onChange={(event)=> {
-                      setNewName(event.target.value); */}
-
             <input
               type="text"
               style={mystyle.forminput}
-              name="donorName "
-              defaultValue={newdonorName}
+              name="nic "
+              defaultValue={newnic}
               onChange={(event) => {
-                setNewdonorName(event.target.value);
+                setNewNic(event.target.value);
               }}
               required
-              placeholder="Donor Name*"
+              placeholder="NIC*"
+            />
+            <br />
+            <input
+              type="text"
+              style={mystyle.forminput}
+              name="name"
+              defaultValue={newname}
+              onChange={(event) => {
+                setNewName(event.target.value);
+              }}
+              required
+              placeholder="Name*"
+            />
+            <br />
+            <input
+              type="text"
+              style={mystyle.forminput}
+              name="home_no"
+              defaultValue={newhome_no}
+              onChange={(event) => {
+                setNewHome_no(event.target.value);
+              }}
+              required
+              placeholder="House No. / House Name*"
             />
             <br />
             <input
@@ -158,7 +186,7 @@ function UpdateDonation() {
                 setNewAddress(event.target.value);
               }}
               required
-              placeholder="Address*"
+              placeholder="Address"
             />
             <br />
             <input
@@ -170,9 +198,8 @@ function UpdateDonation() {
                 setNewPhone(event.target.value);
               }}
               required
-              placeholder="Telephone Number*"
+              placeholder="Contact No.*"
             />
-            <br />
             <input
               type="text"
               style={mystyle.forminput}
@@ -186,29 +213,29 @@ function UpdateDonation() {
             />
             <br />
             <input
-              type="int"
+              type="text"
               style={mystyle.forminput}
-              name="amount"
-              defaultValue={newamount}
+              name="des"
+              defaultValue={newdes}
               onChange={(event) => {
-                setNewAmount(event.target.value);
+                setNewDes(event.target.value);
               }}
               required
-              placeholder="Donation Amount*"
+              placeholder="Additional Note If Any"
             />
             <br />
           </div>
           <div display="flex" align="right">
             <button
-              onClick={() => EditDon(donorID)}
+              onClick={() => AddBook(appointID)}
               id="submitBtn"
               style={mystyle.submitBtn}
             >
               {" "}
-              Update
+              Submit
             </button>
 
-            <Link to="/Donors/donations">
+            <Link to="/Appointment/userBooking">
               <button id="submitBtn" style={mystyle.closeBtn}>
                 {" "}
                 Cancel
@@ -222,4 +249,4 @@ function UpdateDonation() {
   );
 }
 
-export default UpdateDonation;
+export default AddBooking;

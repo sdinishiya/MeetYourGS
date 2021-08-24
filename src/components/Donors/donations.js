@@ -77,17 +77,6 @@ export default function DonationView() {
     <div ><br/>
                 <div className='box-main'>
                 <h1> Donor & Donation Details</h1>
-                  {/* <Box justifyContent="flex-start" ml={5}>
-                  <div className="searchbar">
-                   <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
-                   <SearchIcon  className='searchicon'/>
-                </div>
-                  </Box> */}
-                {/* <Box justifyContent="flex-end" ml={120}>
-                <Link  to='/materials/AddMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add Materials</button> </Link>
-                <Link to='/materials/SupplyMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Supply Material</button></Link>
-                </Box> */}
-                {/* <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add</button> */}
                 </div><br/> 
 
                 {/* <Table  bordered hover responsive> */}

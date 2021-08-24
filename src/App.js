@@ -11,6 +11,7 @@ import ProjectReviewCard from './components/projects/cards/PresentProjects';
 import CenteredGrid from './components/projects/grids/PresentProjects'; 
 import Dashboard from './components/Dashboard/Dashboard'; 
 import Addnotice from './components/Dashboard/addnotice';
+import ViewNotice from './components/Dashboard/viewNotice';
 import Donate2 from './components/Donations/donate2'; 
 import removeVillager from './components/villagers/remove_villager';
 import RegisterVillager from './components/villagers/register_villagers';
@@ -49,10 +50,13 @@ import Cardd from './components/finance/cardd';
 import Fund from './components/finance/projectfund';
 import Add_ProjectFund from './components/finance/Addprojectfund';
 import Allocate_Fund from './components/finance/AllocateProjectfund';
+
 import Appoint from './components/Appointment/appointments';
+import AppointmentSchedule from './components/Appointment/viewScheduled'; 
 import schedule from './components/Appointment/schedule';
-import Booking from './components/Appointment/bookApp';
-import Booking1 from './components/Appointment/bookApp1';
+import Booking from './components/Appointment/addBooking';
+import userBookingRoute from './components/Appointment/userBookingRoute';
+import UserBooking from './components/Appointment/userBooking';
  
  
 import thank from './components/Appointment/thankyou';
@@ -92,6 +96,7 @@ function App() {
           <Route exact path="/materials/Addnewmaterial" component = {New_Materials} />
           <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
           <Route exact path="/Dashboard/addnotice" component = {Addnotice} />
+          <Route exact path="/Dashboard/viewNotice" component = {ViewNotice} />
           <Route exact path="/Donations/donate2" component = {Donate2} />
           <Route exact path="/finance/Addfund" component = {Add_Fund} />
           <Route exact path="/finance/AddExpense" component = {Add_Expense} />
@@ -117,15 +122,16 @@ function App() {
           
           <Route path='/Appointment/appointments' component={Appoint} />
           <Route path='/Appointment/schedule' component={schedule} />
-          <Route path='/Appointment/bookApp/:id' component={Booking} />
-          <Route path='/Appointment/bookApp1' component={Booking1} />
+          <Route path='/Appointment/viewScheduled' component={AppointmentSchedule} />
+          <Route path='/Appointment/addBooking' component={Booking} />
+          <Route path='/Appointment/userBooking' component={UserBooking} />
+          <Route path='/userBookingRoute' component={userBookingRoute} />
           <Route path='/Appointment/thankyou' component={thank} />
 
           <Route path='/Donors/donationdash' component={Donationdash} />
           <Route path='/Donors/donations' component={DonationView} />
           <Route path='/Donors/add_donation' component={AddDonation} />
           <Route path='/editDonationsRoute' component={EditDonationsRoute} />
-
 
         </Switch>
       </Router>

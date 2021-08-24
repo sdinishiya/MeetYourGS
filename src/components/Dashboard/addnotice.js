@@ -109,7 +109,7 @@ function Addnotice() {
 
           <div display='flex' align='right'>
 
-            <Link to='#'>
+            <Link to='/Dashboard/viewNotice'>
               <button type="submit" onClick={notice} id="submitBtn"style={mystyle.submitBtn}> Add</button>
             </Link>
 

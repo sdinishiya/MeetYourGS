@@ -22,6 +22,12 @@ function Cardd() {
               label='Finance'
               path='/finance/projectfund'
             />
+            <CardItem
+              src='../images/project.jpg'
+              text='Donation Details'
+              label='Finance'
+              path='/Donors/donationdash'
+            />
         
           </ul>
         
