@@ -31,7 +31,7 @@ const db = mysql.createConnection({
 	user: "root",
 	host: "localhost",
 	password: "",
-	database: "meetyour_gs",
+	database: "meetyourgs",
 });
 
 db.connect((err)=>{
@@ -111,8 +111,8 @@ app.post('/create',(req,res)=>{
     //SELECT newconstmaterial.materialname  FROM newconstmaterial where newconstmaterial.materialid = constsmaterial.materialid
     // SELECT matname FROM newconstmaterial INNER JOIN constsmaterial  ON matid = materialid
 
-    db.query("INSERT INTO constsmaterial (addeddate,materialid,materialname,description,quantity) VALUES (?,?,?,?,?)",
-    [addeddate,materialid,materialname,description,quantity],(err,result)=>{ 
+    db.query("INSERT INTO constsmaterial (addeddate,materialid,description,quantity) VALUES (?,?,?,?)",
+    [addeddate,materialid,description,quantity],(err,result)=>{ 
         if(err){
             console.log(err);
         } else{
@@ -124,7 +124,7 @@ app.post('/create',(req,res)=>{
 });
 
 app.get('/materials',(req,res)=>{
-    db.query("SELECT * FROM constsmaterial order by date ASC",(err,result,) => {
+    db.query("SELECT c.*,n.materialname FROM newconstmaterial n JOIN constsmaterial c ON n.materialid = c.materialid order by addeddate ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
