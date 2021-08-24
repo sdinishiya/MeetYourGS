@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import axios from "axios";
 import GSFooter from '../GSFooter';
 import GSNavbar from '../gs_navbar';
 
 function Schedule() {
-    const [appID,setID] = useState("");
+    const [appointID,setID] = useState("");
     const [gsname,setName] = useState("");
     const [date,setDate] = useState("");
     const [startTime,setStartTime] = useState("");
     const [endTime,setEndTime] = useState("");
     const [description,setDescription] = useState("");
+    const history  = useHistory();
 
     const schedule = ()=>{
-      console.log(appID);
+      console.log(appointID);
+
+      const d1 = new Date();
+      const d2 = new Date(date);
+      if (d2.getTime() < d1.getTime()) {
+        alert("Date must be greater than today");
+        return;
+      }
+
        axios.post('http://localhost:3001/schedule',{
         gsname:gsname,
         date:date,
@@ -23,6 +32,7 @@ function Schedule() {
 
         }).then(()=>{
            console.log("success");
+           //history.push("/Appointment/viewScheduled");
          });
     };
 

@@ -1,5 +1,7 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -14,28 +16,13 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-
-import Donation from '../tables/Donation_mgt';
-import View from './view';
-import Graph from './graph';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import axios from 'axios';
+import Notice from './notice';
+import CenteredGrid from '../projects/grids/PresentProjects';
 
 const drawerWidth = 240;
 
@@ -115,8 +102,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 600,
+    width:700,
   },
+  
 }));
 
 const styles = {
@@ -124,7 +113,23 @@ const styles = {
       backgroundColor:'rgb(21,21,21)',
     }
   };
-export default function Dashboard() {
+
+  const mystyle = {
+    addbtn: {
+      marginTop: '10px',
+      width: '200px',
+      height: '40px',
+      fontSize: '14px',
+      backgroundColor: '#fcba03',
+      cursor: 'pointer',
+      border: 'none',
+      borderRadius: '5px',
+      color: 'white',
+      marginRight: '30px'
+  }
+  };
+
+export default function ViewNotice() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -134,6 +139,19 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const [notices, setnotices] = useState([]);
+  useEffect(() => {
+   getdata();
+  }, [])
+
+
+  function getdata(){
+    axios.get("http://localhost:3001/noticeview").then((response)=>{
+      setnotices(response.data);
+      console.log(response.data);
+    })
+  }
 
   return (
     <div className={classes.root}>
@@ -147,7 +165,7 @@ export default function Dashboard() {
             onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
-           <MenuIcon />
+            <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
@@ -180,12 +198,18 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-           
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Donation />
+
+        <Box justifyContent="flex-end" ml={130}>
+            <Link  to='/Dashboard/addnotice'> <button  id="addbtn" style={mystyle.addbtn}> Add New Notices </button> </Link>
+        </Box>
+        <Box justifyContent="flex-end" ml={30}>
+           <Grid item xs={12} md={12} lg={12}>
+              <Paper className={fixedHeightPaper}>
+                {notices.map(notice=>(<Notice topic={notice.topic} description={notice.description} />))}
               </Paper>
             </Grid>
+        </Box>
+           
           </Grid>
           <Box pt={4}>
             

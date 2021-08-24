@@ -14,7 +14,7 @@ function Appcards() {
               src='../images/img-book.jpg'
               text='Schedule appointment time slots that are available '
               label='Schedule Appointments'
-              path='/Appointment/schedule'
+              path='/Appointment/viewScheduled'
             />
             <CardItem
               src='../images/gs2.jpg'

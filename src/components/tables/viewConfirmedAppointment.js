@@ -19,40 +19,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 // import { Search as SearchIcon } from 'react-feather';
 
-// const mystyle = {
-//   acceptbtn: {
-//       marginTop: '10px',
-//       width: '125px',
-//       height: '30px',
-//       fontSize: '14px',
-//       backgroundColor: '#16ab31',
-//       cursor: 'pointer',
-//       border: 'none',
-//       borderRadius: '5px',
-//       color: 'white',
-//       marginRight: '30px'
-//   },
-//   declinebtn: {
-//     marginTop: '10px',
-//     width: '125px',
-//     height: '30px',
-//     fontSize: '14px',
-//     backgroundColor: '#e02424',
-//     cursor: 'pointer',
-//     border: 'none',
-//     borderRadius: '5px',
-//     color: 'white',
-//     marginRight: '30px'
-// }
-// };
-
 export default function AppointmentConfirm() {
   const [searchTerm,setSearchTerm]=useState("");
   const [viewList,setviewList]=useState([])
   // const classes = useStyles();
 
   useEffect(()=>{
-    axios.get("http://localhost:3001/appconfirm").then((response)=>{
+    axios.get("http://localhost:3001/confirmbook").then((response)=>{
         setviewList(response.data)
     })
   },[])
@@ -83,18 +56,7 @@ export default function AppointmentConfirm() {
     <div ><br/>
                 <div className='box-main'>
                 <h1> Confirmed Appointment Details</h1>
-                  {/* <Box justifyContent="flex-start" ml={5}>
-                  <div className="searchbar">
-                   <input type="text" onChange={(e)=>{setSearchTerm(e.target.value);}} placeholder="Search"/>
-                   <SearchIcon  className='searchicon'/>
-                </div>
-                  </Box> */}
-                {/* <Box justifyContent="flex-end" ml={120}>
-                <Link  to='/materials/AddMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add Materials</button> </Link>
-                <Link to='/materials/SupplyMaterials'> <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Supply Material</button></Link>
-                </Box> */}
-                {/* <button type="submit" onClick={ConstResources} id="submitBtn"style={mystyle.submitBtn}> Add</button> */}
-                </div><br/> 
+                </div> <br />
 
                 {/* <Table  bordered hover responsive> */}
               <TableContainer>
@@ -102,11 +64,15 @@ export default function AppointmentConfirm() {
                   <thead className="tableheading">
                     <tr>
                       <td align="center" scope="col"><b>Appointment ID</b></td>
-                      <td align="center" scope="col"><b>Villager NIC</b></td>
+                      <td align="center" scope="col"><b>GS Name</b></td>
+                      <td align="center" scope="col"><b>Date</b></td>
+                      <td align="center" scope="col"><b>Time</b></td>
+                      <td align="center" scope="col"><b>Description</b></td>
                       <td align="center" scope="col"><b>Villager Name</b></td>
+                      <td align="center" scope="col"><b>Address</b></td>
                       <td align="center" scope="col"><b>Phone</b></td>
                       <td align="center" scope="col"><b>Email</b></td>
-                      <td align="center" scope="col"><b>Description</b></td>
+                      <td align="center" scope="col"><b>Extra Note</b></td>
                     </tr>
                   </thead>
                  <tbody className="tablebody">
@@ -118,11 +84,20 @@ export default function AppointmentConfirm() {
                        return val
                      }
                     }).map((record)=>{
+                      const dt = new Date(record.date);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
+
                       return(
                        <tr>
-                       <td align="center" scope="row" >{record.bookID}</td>
-                       <td align="center">{record.nic}</td>
+                       <td align="center" scope="row" >{record.appointID}</td>
+                       <td align="center">{record.gsname}</td>
+                       <td align="center">{year + month + day}</td>
+                       <td align="center">{record.startTime} - {record.endTime}</td>
+                       <td align="center">{record.description}</td>
                        <td align="center">{record.name}</td>
+                       <td align="center">{record.home_no}, {record.address}</td>
                        <td align="center">{record.phone}</td>
                        <td align="center">{record.email}</td>
                        <td align="center">{record.des}</td>

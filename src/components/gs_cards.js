@@ -81,8 +81,6 @@ function Cards_gs() {
         <Grid item xs={12} md={4} lg={6}>
               <paper> 
                 {notices.map(notice=>(<Notice topic={notice.topic} description={notice.description} />))}
-                {/* <Notice /> */}
-
               </paper>
 
 

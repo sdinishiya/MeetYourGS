@@ -19,17 +19,17 @@ import SearchIcon from '@material-ui/icons/Search';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 const mystyle = {
-    pageBtn: {
-      marginTop: '10px',
-      width: '125px',
-      height: '30px',
-      fontSize: '14px',
-      backgroundColor: '#16ab31',
-      cursor: 'pointer',
-      border: 'none',
-      borderRadius: '5px',
-      color: 'white',
-      marginRight: '30px'
+  schedulebtn: {
+    marginTop: '10px',
+    width: '200px',
+    height: '40px',
+    fontSize: '14px',
+    backgroundColor: '#fcba03',
+    cursor: 'pointer',
+    border: 'none',
+    borderRadius: '5px',
+    color: 'white',
+    marginRight: '30px'
 }
 };
 
@@ -39,19 +39,11 @@ export default function AppointmentSchedule() {
   // const classes = useStyles();
 
   useEffect(()=>{
-    axios.get("http://localhost:3001/appconfirm").then((response)=>{
+    axios.get("http://localhost:3001/viewSchedule").then((response)=>{
         setviewList(response.data)
     })
   },[])
 
-  // const [newName,setNewName]=useState("");
-  // const updateMaterial =(materialid)=>{
-  //   axios.put("http://localhost:3001/update",{
-  //     id:materialid,
-  //     name:newName,
-  //   });
-  //   setNewName("")
-  // };
 
   const [modal, setModal] = useState(false);
 
@@ -68,10 +60,10 @@ export default function AppointmentSchedule() {
   return (
     <div ><br/>
                 <div className='box-main'>
-                <h1> Scheduled Appointment Details</h1>
+                <h1> Previously Scheduled Appointments </h1>
                 
-                <Box justifyContent="flex-end" ml={120}>
-                <Link  to='/Appointment/schedule'> <button  id="pageBtn"style={mystyle.submitBtn}> Schedule Appointments </button> </Link>
+                <Box justifyContent="flex-end" ml={145}>
+                  <Link  to='/Appointment/schedule'> <button  id="schedulebtn" style={mystyle.schedulebtn}> Schedule New Appointments </button> </Link>
                 </Box>
                 </div><br/> 
 
@@ -81,10 +73,9 @@ export default function AppointmentSchedule() {
                   <thead className="tableheading">
                     <tr>
                       <td align="center" scope="col"><b>Appointment ID</b></td>
-                      <td align="center" scope="col"><b>Villager NIC</b></td>
-                      <td align="center" scope="col"><b>Villager Name</b></td>
-                      <td align="center" scope="col"><b>Phone</b></td>
-                      <td align="center" scope="col"><b>Email</b></td>
+                      <td align="center" scope="col"><b>GS Name</b></td>
+                      <td align="center" scope="col"><b>Date</b></td>
+                      <td align="center" scope="col"><b>Time Duration</b></td>
                       <td align="center" scope="col"><b>Description</b></td>
                       <td align="center" scope="col"><b>Status</b></td>
 
@@ -99,14 +90,18 @@ export default function AppointmentSchedule() {
                        return val
                      }
                     }).map((record)=>{
+                      const dt = new Date(record.date);
+                      const year = dt.getFullYear() + '/';
+                      const month = ('0' + (dt.getMonth() + 1)).slice(-2) + '/';
+                      const day = ('0' + dt.getDate()).slice(-2);
+
                       return(
                        <tr>
-                       <td align="center" scope="row" >{record.bookID}</td>
-                       <td align="center">{record.nic}</td>
-                       <td align="center">{record.name}</td>
-                       <td align="center">{record.phone}</td>
-                       <td align="center">{record.email}</td>
-                       <td align="center">{record.des}</td>
+                       <td align="center" scope="row" >{record.appointID}</td>
+                       <td align="center">{record.gsname}</td>
+                       <td align="center">{year + month + day}</td>
+                       <td align="center">{record.startTime} - {record.endTime}</td>
+                       <td align="center">{record.description}</td>
                        <td align="center">{record.status}</td>
                       </tr>
                        )

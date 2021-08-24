@@ -20,12 +20,12 @@ export default function Notice(props) {
     <React.Fragment>
       <Title>{props.topic}</Title>
       <Typography component="p" variant="h5">
-        25,024
         {props.description}
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
         as at 15 March, 2020
       </Typography>
+      
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>
           View Voters List

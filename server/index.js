@@ -18,15 +18,11 @@ const bodyParser =  require('body-parser')
 // app.use(cors());
 const saltRounds = 10;
 
-
-
-
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 //var req = require("./node_modules/req/node_modules/request");
-
 const db = mysql.createConnection({
 	user: "root",
 	host: "localhost",
@@ -69,7 +65,6 @@ app.post('/sign-up', (req, res)=> {
 	})
 	
 });
-
 app.post('/login', (req, res) => {
 
 	const email = req.body.email
@@ -122,7 +117,6 @@ app.post('/create',(req,res)=>{
     })
     
 });
-
 app.get('/materials',(req,res)=>{
     db.query("SELECT * FROM constsmaterial order by date ASC",(err,result,) => {
         if(err) {
@@ -133,7 +127,6 @@ app.get('/materials',(req,res)=>{
         
     });
 });
-
 app.get('/materialname', (req, res) => {
     db.query('SELECT materialid,materialname FROM newconstmaterial ', (err, result) => {
         res.send(result);
@@ -151,7 +144,6 @@ app.delete("/delete/:id",(req,res)=>{
       if(err) console.log(err);
     });
   });
-
   app.put("/update/:id",(req,res)=>{
     const id = req.params.id;
     const name = req.params.name;
@@ -161,7 +153,6 @@ app.delete("/delete/:id",(req,res)=>{
       if(err) console.log(err);
     })
   });
-  
   app.put('/updateMaterial/:id', (req,res) => {
     console.log(id);
     //const id = req.body.id;
@@ -172,7 +163,6 @@ app.delete("/delete/:id",(req,res)=>{
       if(err) console.log(err);
     })
   });
-
   app.post('/createnew',(req,res)=>{
     console.log(req.body)
     const materialid = req.body.materialid;
@@ -189,7 +179,6 @@ app.delete("/delete/:id",(req,res)=>{
     })
     
 });
-
 app.get('/newmaterial',(req,res)=>{
     db.query("SELECT * FROM newconstmaterial",(err,result,) => {
         if(err) {
@@ -222,7 +211,6 @@ app.post('/agri',(req,res)=>{
     })
     
 });
-
 app.get('/agrimaterials',(req,res)=>{
     db.query("SELECT * FROM agrimaterial order by materialid ASC",(err,result,) => {
         if(err) {
@@ -258,7 +246,6 @@ app.post('/other',(req,res)=>{
     })
     
 });
-
 app.get('/othermaterials',(req,res)=>{
     db.query("SELECT * FROM othermaterial order by materialid ASC",(err,result,) => {
         if(err) {
@@ -271,7 +258,6 @@ app.get('/othermaterials',(req,res)=>{
 });
 
 // income
-
 app.post('/financecreate',(req,res)=>{
     console.log(req.body)
     const date = req.body.date;
@@ -290,7 +276,6 @@ app.post('/financecreate',(req,res)=>{
     })
     
 });
-
 app.get('/transaction',(req,res)=>{
     db.query("SELECT * FROM finance order by date ASC" ,(err,result,) => {
         if(err) {
@@ -301,9 +286,7 @@ app.get('/transaction',(req,res)=>{
         
     });
 });
-
 // expense
-
 app.post('/expensecreate',(req,res)=>{
     console.log(req.body)
     const date = req.body.date;
@@ -322,9 +305,7 @@ app.post('/expensecreate',(req,res)=>{
     })
     
 });
-
 // fund
-
 app.post('/fundcreate',(req,res)=>{
     console.log(req.body)
     const date = req.body.date;
@@ -343,7 +324,6 @@ app.post('/fundcreate',(req,res)=>{
     })
     
 });
-
 app.get('/funds',(req,res)=>{
     db.query("SELECT * FROM fund order by date ASC",(err,result,) => {
         if(err) {
@@ -354,7 +334,6 @@ app.get('/funds',(req,res)=>{
         
     });
 });
-
 // Fund Allocation
 app.post('/fundallocatecreate',(req,res)=>{
     console.log(req.body)
@@ -394,9 +373,20 @@ app.post('/schedule',(req,res)=>{
         }
     })  
 });
+//gsview
+app.get('/viewSchedule',(req,res)=>{
+    db.query("SELECT appointID,gsname,date,startTime,endTime,description,status status FROM appointment",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
 //userview
 app.get('/book',(req,res)=>{
-    db.query("SELECT appointID,gsname,date,startTime,endTime,description FROM appointment",(err,result,) => {
+    db.query("SELECT appointID,gsname,date,startTime,endTime,description FROM appointment WHERE book_status = 0",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -406,9 +396,9 @@ app.get('/book',(req,res)=>{
     });
 });
 
-//addbooking
+//addbooking //appointview
 app.get('/appview',(req,res)=>{
-    db.query("SELECT appointID,nic,name,home_no,address,phone,email,des FROM appointment",(err,result,) => {
+    db.query("SELECT appointID,nic,name,home_no,address,phone,email,des FROM appointment WHERE book_status = 1",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -416,7 +406,6 @@ app.get('/appview',(req,res)=>{
 	  }     
     });
 });
-
 app.get('/appdetails',(req,res)=>{
     db.query("SELECT nic,name,home_no,address,phone,email,des FROM appointment",(err,result,) => {
         if(err) {
@@ -426,7 +415,6 @@ app.get('/appdetails',(req,res)=>{
 	  }     
     });
 });
-
 app.put('/add-app-booking', (req,res) => {
     const appointID = req.body.appointID;
     const nic = req.body.nic;
@@ -451,25 +439,15 @@ app.put('/add-app-booking', (req,res) => {
        }
     );
   });
-
-
-app.get('/appschedule',(req,res)=>{
-    db.query("SELECT bookID,nic,name,home_no,address,phone,email,des,status FROM bookings ",(err,result,) => {
+//confirmed appointment
+  app.get('/confirmbook',(req,res)=>{
+    db.query("SELECT appointID,gsname,date,startTime,endTime,description,name,home_no,address,phone,email,des FROM appointment WHERE status = 1",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
         res.send(result)
-	  }     
-    });
-});
-
-app.get('/appconfirm',(req,res)=>{
-    db.query("SELECT bookID,nic,name,home_no,address,phone,email,des FROM bookings WHERE status = '1' ",(err,result,) => {
-        if(err) {
-		console.log(err)
-	  } else {
-        res.send(result)
-	  }    
+	  } 
+        
     });
 });
 
@@ -507,7 +485,6 @@ app.get('/donationview',(req,res)=>{
         
     });
 });
-
 //edit view and put
 app.get("/donationdetails",(req,res)=>{
     donorID=req.params.donorID;
@@ -517,7 +494,6 @@ app.get("/donationdetails",(req,res)=>{
     });
         
 });
-
 app.put('/edit-donations', (req,res) => {
     const donorID = req.body.donorID;
     const donorName = req.body.donorName;
@@ -563,7 +539,6 @@ app.post('/addnotice',(req,res)=>{
     })
     
 });
-
 app.get('/noticeview',(req,res)=>{
     db.query("SELECT topic,description,uploadDate,expDate,active_status FROM notice",(err,result,) => {
         if(err) {

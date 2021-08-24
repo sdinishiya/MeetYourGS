@@ -15,6 +15,14 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 export const mainListItems = (
   <div>
       <ListItem button>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <Link to='/Dashboard/viewNotice' className='nav-link1'>
+        <ListItemText primary="General Notices" />
+        </Link>
+      </ListItem>
+      <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
@@ -36,14 +44,6 @@ export const mainListItems = (
       </ListItemIcon>
       <Link to='/finance/cardd' className='nav-link1'>
       <ListItemText primary="Finance" />
-      </Link>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <Link to='/Donors/donationdash' className='nav-link1'>
-      <ListItemText primary="Donor & Donations" />
       </Link>
     </ListItem>
     <ListItem button>

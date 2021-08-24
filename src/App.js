@@ -11,6 +11,7 @@ import ProjectReviewCard from './components/projects/cards/PresentProjects';
 import CenteredGrid from './components/projects/grids/PresentProjects'; 
 import Dashboard from './components/Dashboard/Dashboard'; 
 import Addnotice from './components/Dashboard/addnotice';
+import ViewNotice from './components/Dashboard/viewNotice';
 import Donate2 from './components/Donations/donate2'; 
 import removeVillager from './components/villagers/remove_villager';
 import RegisterVillager from './components/villagers/register_villagers';
@@ -95,6 +96,7 @@ function App() {
           <Route exact path="/materials/Addnewmaterial" component = {New_Materials} />
           <Route exact path="/Dashboard/Dashboard" component = {Dashboard} />
           <Route exact path="/Dashboard/addnotice" component = {Addnotice} />
+          <Route exact path="/Dashboard/viewNotice" component = {ViewNotice} />
           <Route exact path="/Donations/donate2" component = {Donate2} />
           <Route exact path="/finance/Addfund" component = {Add_Fund} />
           <Route exact path="/finance/AddExpense" component = {Add_Expense} />
