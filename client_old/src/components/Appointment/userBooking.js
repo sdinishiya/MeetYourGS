@@ -100,7 +100,6 @@ export default function UserBooking() {
                         <Link to={location=> `/userBookingRoute/${record.appointID}`}>
                           <button id="bookbtn" style={mystyle.bookbtn} > Book </button>
                         </Link>
-                        
                         </td>
                       </tr>
                        )

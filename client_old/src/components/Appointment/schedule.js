@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link,useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import GSFooter from '../GSFooter';
 import GSNavbar from '../gs_navbar';
@@ -114,7 +114,11 @@ function Schedule() {
         <form >
           <div >
 
-            <input type="text"style={mystyle.forminput}name="gsname" onChange={(event)=>{setName(event.target.value);}} required placeholder="GS Name"/><br />
+            <input type="text"
+              style={mystyle.forminput}
+              name="gsname" onChange={(event)=>{setName(event.target.value);}} 
+              required 
+              placeholder="GS Name"/><br />
             <input type="date"style={mystyle.forminput}name="date " onChange={(event)=>{setDate(event.target.value);}} required placeholder="Date"/><br />
             <input type="time"style={mystyle.forminput}name="startTime" onChange={(event)=>{setStartTime(event.target.value);}} required placeholder="Start Time"/><br />
             <input type="time"style={mystyle.forminput}name="endTime" onChange={(event)=>{setEndTime(event.target.value);}} required placeholder="End Time"/><br />
@@ -129,7 +133,7 @@ function Schedule() {
             </Link>
 
             <Link to='/Appointment/schedule'>
-              <button type="submit"id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
+              <button type="button" id="submitBtn"style={mystyle.closeBtn}> Cancel</button>
             </Link>
           </div>
           <br/> <br/>
