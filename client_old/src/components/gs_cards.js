@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Cards.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Notice from './Dashboard/GSnotice';
+import Notice from './Dashboard/notice';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
@@ -80,10 +80,7 @@ function Cards_gs() {
           
         <Grid item xs={12} md={4} lg={6}>
               <paper> 
-                {notices.map(notice=>(<Notice topic={notice.topic} 
-                                              description={notice.description} 
-                                              uploadDate={notice.uploadDate}
-                                              expDate={notice.expDate} />))}
+                {notices.map(notice=>(<Notice topic={notice.topic} description={notice.description} />))}
               </paper>
 
 

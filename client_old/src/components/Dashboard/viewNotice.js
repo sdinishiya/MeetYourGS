@@ -21,7 +21,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import axios from 'axios';
-import Notice from './GSnotice';
+import Notice from './notice';
 import CenteredGrid from '../projects/grids/PresentProjects';
 
 const drawerWidth = 240;
@@ -205,10 +205,7 @@ export default function ViewNotice() {
         <Box justifyContent="flex-end" ml={30}>
            <Grid item xs={12} md={12} lg={12}>
               <Paper className={fixedHeightPaper}>
-              {notices.map(notice=>(<Notice topic={notice.topic} 
-                                              description={notice.description} 
-                                              uploadDate={notice.uploadDate}
-                                              expDate={notice.expDate} />))}
+                {notices.map(notice=>(<Notice topic={notice.topic} description={notice.description} />))}
               </Paper>
             </Grid>
         </Box>
